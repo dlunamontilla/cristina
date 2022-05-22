@@ -13,7 +13,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
     <title>Preguntas Frecuentes</title>
 
     <!--Icono navegación-->
-    <link rel="shortcut icon" href="img/logo.png">
+    <link rel="shortcut icon" href="assets/img/logo.png">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -39,7 +39,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
         <!-- Logo - Icono de navegación -->
         <div class="d-flex align-items-center justify-content-between">
             <a class="logo d-flex align-items-center">
-                <img src="img/logo.png" alt="" width="80" height="60">
+                <img src="assets/img/logo.png" alt="" width="80" height="60">
             </a>
             <i id="toggle-sidebar-btn" class="bi bi-list toggle-sidebar-btn menu__btn"></i>
         </div>
