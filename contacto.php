@@ -106,7 +106,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="indicadores.php">
+                <a class="nav-link collapsed" href="user.php">
                     <i class="bi bi-grid"></i>
                     <span>Indicadores</span>
                 </a>
@@ -230,7 +230,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
             <h1>Contacto</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="admin.php">Indicadores</a></li>
+                    <li class="breadcrumb-item"><a href="user.php">Indicadores</a></li>
                     <li class="breadcrumb-item">Otros Ajustes</li>
                     <li class="breadcrumb-item">Contacto</li>
                 </ol>
@@ -255,7 +255,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                             <div class="info-item d-flex mb-3">
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
-                                <h4>Email:</h4>
+                                <h4>Correo electrónico:</h4>
                                 <p>saludfit@gmail.com</p>
                             </div>
                             </div><!-- End Info Item -->
@@ -280,12 +280,12 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                             <input type="text" name="name" class="form-control" id="name" placeholder="Nombre *" required>
                         </div>
                         <div class="col-md-6 form-group mt-3">
-                            <input type="tel" name="movil" class="form-control" id="movil" placeholder="Móvil *" required>
+                            <input type="tel" name="tel" class="form-control" id="tel" placeholder="Teléfono *" required>
                         </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 form-group mt-3 ">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Email *" required>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico *" required>
                             </div>
                             <div class="col-md-6 form-group mt-3 ">
                                 <select class="form-select form-control" required>
@@ -306,7 +306,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                         <textarea class="form-control" name="message" placeholder="Mensaje *" required></textarea>
                         </div>
                         <div class="mb-3">
-                            <input type="checkbox" name="acceptance-930" value="1" aria-invalid="false"> <label> He leído y acepto la <a href="#privacidad" target="_blank">política de privacidad</a> (*)</label>
+                            <input type="checkbox" name="acceptance-930" value="1" aria-invalid="false"> <label> He leído y acepto la <a href="politica-de-privacidad.html" target="_blank">política de privacidad</a> (*)</label>
                         </div>
                         <div class="text-center"><button type="submit">Enviar</button></div>
                     </form>

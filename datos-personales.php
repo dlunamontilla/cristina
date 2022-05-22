@@ -106,7 +106,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="indicadores.php">
+        <a class="nav-link collapsed" href="user.php">
           <i class="bi bi-grid"></i>
           <span>Indicadores</span>
         </a>
@@ -233,7 +233,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
       <h1>Datos Personales</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="admin.php">Indicadores</a></li>
+          <li class="breadcrumb-item"><a href="user.php">Indicadores</a></li>
           <li class="breadcrumb-item">Mi Perfil</li>
           <li class="breadcrumb-item">Datos Personales</li>
         </ol>
@@ -309,18 +309,23 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 
                   <h5 class="card-title-profile mb-4">Datos de contacto</h5>
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email:</div>
+                    <div class="col-lg-3 col-md-4 label">Correo electrónico:</div>
                     <div class="col-lg-9 col-md-8">andreamartinez@gmail.com</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Móvil:</div>
+                    <div class="col-lg-3 col-md-4 label">Teléfono:</div>
                     <div class="col-lg-9 col-md-8">620833829</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Dirección postal:</div>
                     <div class="col-lg-9 col-md-8">C/ Miguel Hernandez</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Localidad:</div>
+                    <div class="col-lg-9 col-md-8">Aldaia</div>
                   </div>
 
                   <div class="row">
@@ -336,78 +341,60 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                   <h5 class="card-title-profile mb-3">Datos personales</h5>
                   <form>
                     <div class="row mb-3">
-                      <legend class="col-md-4 col-lg-3 col-form-label">Género:</legend>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="genero" id="mujer" value="mujer" checked>
-                          <label for="mujer">Mujer</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre">
-                          <label class="form-check-label" for="hombre">Hombre</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="genero" id="otro" value="otro">
-                          <label class="form-check-label" for="otro">Otro</label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
                       <label for="nombre" class="col-md-4 col-lg-3 col-form-label">Nombre:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="nombre" type="text" class="form-control" id="nombre" value="Andrea">
+                        <input name="nombre" type="text" class="form-control" id="nombre" value="Andrea" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="apellidos" class="col-md-4 col-lg-3 col-form-label">Apellidos:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="apellidos" type="text" class="form-control" id="apellidos" value="Martinez Lozano">
+                        <input name="apellidos" type="text" class="form-control" id="apellidos" value="Martinez Lozano" required> 
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="dni" class="col-md-4 col-lg-3 col-form-label">DNI:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="dni" type="text" class="form-control" id="dni" value="73823212J">
+                        <input name="dni" type="text" class="form-control" id="dni" value="73823212J" readonly>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="fecha_nacimiento" class="col-md-4 col-lg-3 col-form-label">Fecha de nacimiento:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="2000-02-16">
+                        <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="2000-02-16" readonly>
                       </div>
                     </div>
 
                     <h5 class="card-title-profile mt-4 mb-3">Datos de contacto</h5>
 
                     <div class="row mb-3">
-                      <label for="movil" class="col-md-4 col-lg-3 col-form-label">Móvil:</label>
+                      <label for="tel" class="col-md-4 col-lg-3 col-form-label">Teléfono:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="movil" type="text" class="form-control" id="movil" value="620833829">
+                        <input name="tel" type="tel" class="form-control" id="tel" value="620833829" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="direccion" class="col-md-4 col-lg-3 col-form-label">Dirección postal:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="direccion" type="text" class="form-control" id="direccion" value="C/ Miguel Hernandez">
+                        <input name="direccion" type="text" class="form-control" id="direccion" value="C/ Miguel Hernandez" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="localidad" class="col-md-4 col-lg-3 col-form-label">Localidad:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="localidad" type="text" class="form-control" id="localidad" value="Aldaia">
+                        <input name="localidad" type="text" class="form-control" id="localidad" value="Aldaia" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="provincia" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="provincia" type="text" class="form-control" id="provincia" value="Valencia">
+                        <input name="provincia" type="text" class="form-control" id="provincia" value="Valencia" required>
                       </div>
                     </div>
 
@@ -416,13 +403,13 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                     <div class="row mb-3">
                       <label for="cuenta-bancaria" class="col-md-4 col-lg-3 col-form-label">Cuenta bancaria:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="cuenta-bancaria" type="text" class="form-control" id="cuenta-bancaria" value="123-234-123">
+                        <input name="cuenta-bancaria" type="text" class="form-control" id="cuenta-bancaria" value="123-234-123" required>
                       </div>
                     </div>
 
 
                     <div class="text-center">
-                      <a type="submit" class="btn-edit">Guardar datos</a>
+                      <a type="submit" class="btn-edit">Cambiar datos</a>
                     </div>
                   </form><!-- Fin Editar Perfil -->
 
@@ -432,9 +419,9 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                 <div class="tab-pane fade profile-edit pt-3" id="profile-change-password">
                   <form>
                     <div class="row mb-3">
-                      <label for="email" class="col-md-4 col-lg-3 col-form-label">Dirección de correo:</label>
+                      <label for="email" class="col-md-4 col-lg-3 col-form-label">Correo electrónico:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="email" value="andreamartinez@gmail.com">
+                        <input name="email" type="email" class="form-control" id="email" value="andreamartinez@gmail.com" required>
                       </div>
                     </div>
 

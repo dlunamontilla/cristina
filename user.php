@@ -109,7 +109,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="indicadores.php">
+        <a class="nav-link" href="user.php">
           <i class="bi bi-grid"></i>
           <span>Indicadores</span>
         </a>

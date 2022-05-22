@@ -106,7 +106,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="indicadores.php">
+                <a class="nav-link collapsed" href="user.php">
                     <i class="bi bi-grid"></i>
                     <span>Indicadores</span>
                 </a>
@@ -232,7 +232,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
             <h1>Vídeos</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="indicadores.php">Indicadores</a></li>
+                    <li class="breadcrumb-item"><a href="user.php">Indicadores</a></li>
                     <li class="breadcrumb-item">Entrenamiento</li>
                     <li class="breadcrumb-item">Vídeos</li>
                 </ol>

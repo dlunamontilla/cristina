@@ -58,7 +58,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                     <!-- Configuración perfil -->
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Nombre Usuario</h6>
+                            <h6>Administrador</h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -85,7 +85,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link" href="administracion.php">
+                <a class="nav-link" href="admin.php">
                     <i class="bi bi-gear"></i>
                     <span>Administración</span>
                 </a>
@@ -107,12 +107,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
         <!-- Titulo - Migas de pan -->
         <div class="pagetitle ">
             <h1>Administración</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="admin.php">Indicadores</a></li>
-                    <li class="breadcrumb-item">Administración</li>
-                </ol>
-            </nav>
+
         </div><!-- Fin Migas de pan -->
 
         <section class="section admin">
@@ -203,7 +198,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                 <div class="row mb-3">
                                                     <label for="dni" class="col-md-4 col-lg-3 col-form-label">DNI:</label>
                                                     <div class="col-md-8 col-lg-9">
-                                                        <input name="dni" type="text" class="form-control" id="dni" value="73823212J" readonly>
+                                                        <input name="dni" type="text" class="form-control" id="dni" value="73823212J" required>
                                                     </div>
                                                 </div>
 
@@ -264,7 +259,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <label for="cuenta-bancaria" class="col-md-4 col-lg-3 col-form-label">Tarifa:</label>
                                                     <div class="col-md-8 col-lg-9">
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="tarifa" id="6meses" value="6meses" checked>
+                                                            <input class="form-check-input" type="radio" name="tarifa" id="6meses" value="6meses" checked required>
                                                             <label for="6meses">6 meses</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
@@ -299,7 +294,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                 <input type="hidden" name="id" value="id_alumno">
                                                 <h6 class="card-title-profile mb-3">Datos de acceso</h6>
                                                 <div class="row mb-3">
-                                                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Dirección de correo:</label>
+                                                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Correo electrónico:</label>
                                                     <div class="col-md-8 col-lg-9">
                                                         <input name="email" type="email" class="form-control" id="email" required>
                                                     </div>
@@ -363,9 +358,9 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                 <h6 class="card-title-profile mt-4 mb-3">Datos de contacto</h6>
 
                                                 <div class="row mb-3">
-                                                    <label for="movil" class="col-md-4 col-lg-3 col-form-label">Móvil:</label>
+                                                    <label for="tel" class="col-md-4 col-lg-3 col-form-label">Teléfono:</label>
                                                     <div class="col-md-8 col-lg-9">
-                                                        <input name="movil" type="text" class="form-control" id="movil" required>
+                                                        <input name="tel" type="tel" class="form-control" id="tel" required>
                                                     </div>
                                                 </div>
 

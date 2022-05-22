@@ -106,7 +106,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="indicadores.php">
+                <a class="nav-link collapsed" href="user.php">
                     <i class="bi bi-grid"></i>
                     <span>Indicadores</span>
                 </a>
@@ -231,7 +231,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
             <h1>Reservar</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="admin.php">Indicadores</a></li>
+                    <li class="breadcrumb-item"><a href="user.php">Indicadores</a></li>
                     <li class="breadcrumb-item">Mi Perfil</li>
                     <li class="breadcrumb-item">Reservar</li>
                 </ol>
@@ -384,6 +384,19 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                         </select>
                                     </div>
                                 </div>
+                                <div class="row mt-4">
+                                    <label for="modalidad" class="col-md-2 col-lg-2 col-form-label">Modalidad:</label>
+                                    <div class="col-md-10 col-lg-10" id="modalidad">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="modalidad" id="presencial" value="presencial" checked required>
+                                            <label for="presencial" class="form-check-label">Presencial</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="modalidad" id="online" value="online">
+                                            <label class="form-check-label" for="online">Online</label>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="text-center mt-3 mb-4">
                                     <a type="submit" class="btn-edit">Reservar</a>
@@ -395,15 +408,15 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                 </div>
 
                 <div class="col-lg-4">
-                        <div class="card">
+                    <div class="card">
 
-                            <div class="card-body pb-0">
-                                <h5 class="card-title">Clases Reservadas</h5>
-                                
+                        <div class="card-body pb-0">
+                            <h5 class="card-title">Clases Reservadas</h5>
 
-                            </div>
+
                         </div>
-                        
+                    </div>
+
                 </div>
             </div>
 
