@@ -324,14 +324,16 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                   </div>
 
                   <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Provincia:</div>
+                    <div class="col-lg-9 col-md-8">Valencia</div>
+                  </div>
+
+                  <div class="row">
                     <div class="col-lg-3 col-md-4 label">Localidad:</div>
                     <div class="col-lg-9 col-md-8">Aldaia</div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Provincia:</div>
-                    <div class="col-lg-9 col-md-8">Valencia</div>
-                  </div>
+                  
 
                 </div>
                 <!--Fin Mis Datos -->
@@ -385,16 +387,22 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                     </div>
 
                     <div class="row mb-3">
-                      <label for="localidad" class="col-md-4 col-lg-3 col-form-label">Localidad:</label>
+                      <label for="provincia" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="localidad" type="text" class="form-control" id="localidad" value="Aldaia" required>
+                        <select class="form-select form-control" required>
+                          <option class="option-select" selected>Seleccione Provincia...</option>
+                          <option value="alicante">Alicante</option>
+                          <option value="barcelona">Barcelona</option>
+                          <option value="madrid">Madrid</option>
+                          <option value="valencia">Valencia</option>
+                        </select>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="provincia" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
+                      <label for="localidad" class="col-md-4 col-lg-3 col-form-label">Localidad:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="provincia" type="text" class="form-control" id="provincia" value="Valencia" required>
+                        <input name="localidad" type="text" class="form-control" id="localidad" value="Aldaia" required>
                       </div>
                     </div>
 

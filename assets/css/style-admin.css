@@ -790,7 +790,7 @@
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
   }
-  input[type=text]:focus,  input[type=email]:focus,  input[type=tel]:focus, input[type=password]:focus, input[type=time]:focus, input[type=date]:focus, .contact textarea:focus, .contact select:focus, .modal select:focus {
+  input[type=text]:focus,  input[type=email]:focus,  input[type=tel]:focus, input[type=password]:focus, input[type=time]:focus, input[type=date]:focus, .contact textarea:focus, .contact select:focus, .card select:focus {
     border-color: #D96159;
   }
   .contact .formulario input[type=text], .contact .formulario input[type=email], .contact .formulario input[type=tel], .contact .formulario select {
