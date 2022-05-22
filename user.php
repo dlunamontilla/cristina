@@ -1,5 +1,5 @@
 <?php
-include("datebase/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
 
 $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
@@ -381,7 +381,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 
                 <div class="modal-body">
 
-                  <form action="datebase/editEvent.php" method="POST">
+                  <form action="database/editEvent.php" method="POST">
                     <input type="hidden" name="id" class="form-control" id="id">
                     <div class="col-sm-12 mb-2">
                       <label for="title" class="control-label">Titulo evento:</label>

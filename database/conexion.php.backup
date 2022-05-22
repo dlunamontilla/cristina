@@ -18,7 +18,7 @@
 
     
     try {
-        $conexion = new PDO('mysql:host=localhost; dbname=gimnasio', "root", "");
+        $conexion = new PDO('mysql:host=localhost; dbname=gimnasio', "username", "password");
         echo "Conectado";
     } catch (PDOException $e) {
         echo "No conectado";

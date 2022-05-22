@@ -1,5 +1,5 @@
 <?php
-  include("datebase/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+  include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
 
   $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
