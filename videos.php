@@ -28,7 +28,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Archivo estilos CSS -->
-    <link href="assets/css/style-admin.css?v1" rel="stylesheet">
+    <link href="assets/css/style-admin.css?v2" rel="stylesheet">
 
     <!-- Cargar vídeos de YouTube -->
     <script src="assets/js/youtube.js?v1" defer></script>
