@@ -1,27 +1,35 @@
 
 <?php
-    //   $servername = "localhost";
-    //   $database = "gimnasio";
-    //   $username = "root";
-    //   $password = "";
 
-    //   // Create connection
-    //   $conexion = mysqli_connect($servername, $username, $password, $database);
-
-    //   // Check connection
-    //   if (!$conexion) {
-    //       die("Connection failed: " . mysqli_connect_error());
-    //   }
-      
-    //   echo "Connected successfully";
-    //   mysqli_close($conexion);
-
+class Connect {
+    /**
+     * @var \PDO Conexión con la base de datos.
+     */
+    private $pdo;
     
-    try {
-        $conexion = new PDO('mysql:host=localhost; dbname=gimnasio', "username", "password");
-        echo "Conectado";
-    } catch (PDOException $e) {
-        echo "No conectado";
+    /**
+     * @param string $username Usuario de la base de datos. El usuario
+     * por defecto es root.
+     * 
+     * @param string $password Contraseña de la base de datos. Por defecto
+     * la contraseña se encuentra en blanco.
+     */
+    public function __construct(string $username = "root", string $password = "") {
+        
+        try {
+            $this->pdo = new PDO('mysql:host=localhost; dbname=gimnasio', $username, $password);
+        }catch(PDOException $error) {
+            print_r($error);
+        }
     }
- 
-?>
+
+    /**
+     * @return \PDO
+     */
+    public function getPDO(): \PDO {
+        return $this->pdo;
+    }
+}
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
