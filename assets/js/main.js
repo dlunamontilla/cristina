@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -37,18 +37,18 @@
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
-   let selectHeader = select('#header')
-   if (selectHeader) {
-     const headerScrolled = () => {
-       if (window.scrollY > 100) {
-         selectHeader.classList.add('header-scrolled')
-       } else {
-         selectHeader.classList.remove('header-scrolled')
-       }
-     }
-     window.addEventListener('load', headerScrolled)
-     onscroll(document, headerScrolled)
-   }
+  let selectHeader = select('#header')
+  if (selectHeader) {
+    const headerScrolled = () => {
+      if (window.scrollY > 100) {
+        selectHeader.classList.add('header-scrolled')
+      } else {
+        selectHeader.classList.remove('header-scrolled')
+      }
+    }
+    window.addEventListener('load', headerScrolled)
+    onscroll(document, headerScrolled)
+  }
 
   /**
    * Back to top button
@@ -69,7 +69,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -78,7 +78,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -98,7 +98,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-   on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -108,14 +108,14 @@
   /**
    * Hero carousel indicators
    */
-   let heroCarouselIndicators = select("#hero-carousel-indicators")
-   let heroCarouselItems = select('#heroCarousel .carousel-item', true)
- 
-   heroCarouselItems.forEach((item, index) => {
-     (index === 0) ?
-     heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
-       heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
-   });
+  let heroCarouselIndicators = select("#hero-carousel-indicators")
+  let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+
+  heroCarouselItems.forEach((item, index) => {
+    (index === 0) ?
+      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>" :
+      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+  });
 
   /**
    * Testimonials slider
@@ -149,19 +149,19 @@
   /**
    * Skills animation
    */
-   let skilsContent = select('.skills-content');
-   if (skilsContent) {
-     new Waypoint({
-       element: skilsContent,
-       offset: '80%',
-       handler: function(direction) {
-         let progress = select('.progress .progress-bar', true);
-         progress.forEach((el) => {
-           el.style.width = el.getAttribute('aria-valuenow') + '%'
-         });
-       }
-     })
-   }
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function (direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        });
+      }
+    })
+  }
 
   /**
    * Animation on scroll

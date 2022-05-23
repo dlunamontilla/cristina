@@ -2,6 +2,7 @@
 include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
 
 $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+// $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>
