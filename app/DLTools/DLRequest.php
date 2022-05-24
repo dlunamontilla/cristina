@@ -15,17 +15,17 @@ class DLRequest {
     /**
      * @var string
      */
-    private string $method = "";
+    private $method = "";
 
     /**
      * @var array
      */
-    private array $values;
+    private $values;
 
     /**
      * @var array $request Métodos $_GET o $_POST
      */
-    private array $request;
+    private $request;
 
     /**
      * @var bool Se almacena la validación de longitudes de la petición
