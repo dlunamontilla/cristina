@@ -300,7 +300,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
               <!-- Lista de tareas -->
               <ul class="to_do" id="lista-nav" data-bs-toggle="collapse" href="#"></ul>
 
-              <button class="button button--add" id="add-task">Agregar lista</button>
+              <button class="button button--add" id="add-task">Agregar tarea</button>
             </div>
           </div>
           <!-- Fin Columna Tareas-->
@@ -336,7 +336,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                       <input type="date" name="fecha_end" class="form-control">
                     </div>
                     <div class="col-sm-6">
-                      <label for="end" class="control-label">Fecha Final</label>
+                      <label for="end" class="control-label">Hora Final</label>
                       <input type="time" name="end" class="form-control">
                     </div>
                   </div>

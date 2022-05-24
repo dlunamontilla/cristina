@@ -1,26 +1,29 @@
+/* CARGA DE VIDEOS YOUTUBE */
 "use strict";
 
 (
     (async function () {
         /**
-         * 
          * @param { string } path 
          * @returns { Promise<Object<string, string|number|Array<Object<string, string|number>>> }
+         * 'fetch' lee el archivo .json, devuelve la información del archivo y se convierte la cadena en un array de objetos JS 
+         * y ya se utiliza para cargar los videos
          */
-        async function getData(path) {
-            const response = await fetch(path);
+        async function getData(path) { 
+            const response = await fetch(path); 
             const data = await response.json();
             return data;
         }
 
         const youtube = document.createElement("div");
-        youtube.classList.add("youtube");
+        youtube.classList.add("youtube"); /* añade la clase al elemento */
 
 
         /**
-         * 
          * @param { Object<string, string> } videos 
          * @returns { string }
+         * agrega las tarjetas html con los videos y titulos en funcion que se tenga en el array de objetos
+         * la funcion se ejecuta varias veces dependiendo de la cantidad de arrays
          */
         function renderCard(videos) {
             const { href, title } = videos;
