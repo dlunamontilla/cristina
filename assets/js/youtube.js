@@ -66,9 +66,27 @@
 
             container.textContent = "";
             container.appendChild(youtube);
+
+            localStorage.setItem("show", show);
         });
 
-        data["cardio"]?.forEach(video => {
+        let show = localStorage.getItem("show");
+        show = show ? show : 'cardio';
+
+        const buttons = navigation.querySelectorAll("button");
+        console.log({ buttons });
+
+        buttons.forEach(button => {
+            const showButton  = button.dataset?.show;
+            button.classList.remove("active");
+
+            if (showButton === show) {
+                button.classList.add("active");
+                console.log({ button })
+            }
+        });
+
+        data[show]?.forEach(video => {
             const html = renderCard(video);
             youtube.insertAdjacentHTML('beforeend', html);
         });

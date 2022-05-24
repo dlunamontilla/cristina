@@ -1482,6 +1482,13 @@ button {
   padding: var(--gap) 0;
 }
 
+.youtube h5 {
+  font-weight: normal;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
 @media screen and (max-width: 1200px  ) {
   .youtube {
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));

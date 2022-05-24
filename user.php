@@ -6,7 +6,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 ?>
 
 <!doctype html>
-<html lang="es">
+<html lang="es-ES">
 
 <head>
   <meta charset="utf-8">
@@ -33,6 +33,10 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 
   <!-- Archivo estilos CSS -->
   <link href="assets/css/style-admin.css" rel="stylesheet">
+
+  <!-- Registrar eventos -->
+  <script src="assets/js/saveToServer.js"></script>
+  <script src="assets/js/register-events.js" defer></script>
 </head>
 
 <body>
@@ -296,7 +300,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 
             <div class="card-body pb-0">
               <h5 class="card-title">Lista de tareas</h5>
-              
+
               <!-- Lista de tareas -->
               <ul class="to_do" id="lista-nav" data-bs-toggle="collapse" href="#"></ul>
 
@@ -305,8 +309,6 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
           </div>
           <!-- Fin Columna Tareas-->
         </div>
-
-
 
         <!-- AÑADIR EVENTO CALENDARIO -->
         <div class="modal fade" id="modal-addEvent" tabindex="-1">
@@ -319,30 +321,35 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 
               <div class="modal-body">
 
-                <form action="" method="POST">
+                <form action="./api/" method="POST" id="form-register-event">
                   <div class="row mb-2">
                     <div class="col-sm-6">
                       <label for="start" class="control-label">Fecha Inicial</label>
-                      <input type="date" name="fecha_start" class="form-control" id="fecha_start">
+                      <input type="date" name="initial_date" class="form-control" id="fecha_start" required="required" />
                     </div>
                     <div class="col-sm-6">
                       <label for="end" class="control-label">Hora Inicial</label>
-                      <input type="time" name="start" class="form-control">
+                      <input type="time" name="initial_time" class="form-control" required="required" />
                     </div>
                   </div>
                   <div class="row mb-2">
                     <div class="col-sm-6">
                       <label for="start" class="control-label">Fecha Final</label>
-                      <input type="date" name="fecha_end" class="form-control">
+                      <input type="date" name="final_date" class="form-control" required="required" />
                     </div>
                     <div class="col-sm-6">
+<<<<<<< HEAD
                       <label for="end" class="control-label">Hora Final</label>
                       <input type="time" name="end" class="form-control">
+=======
+                      <label for="end" class="control-label">Fecha Final</label>
+                      <input type="time" name="final_time" class="form-control" required="required" />
+>>>>>>> f6b55d4 (Implementación parcial del registro)
                     </div>
                   </div>
                   <div class="col-sm-12 mb-2">
                     <label for="title" class="control-label">Titulo evento:</label>
-                    <input type="text" name="title" class="form-control" placeholder="Titulo">
+                    <input type="text" name="title" class="form-control" placeholder="Titulo" required="required" />
                   </div>
                   <div class="col-sm-8 mb-2">
                     <label for="color" class="control-label">Color:</label>
@@ -357,17 +364,16 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                       <option style="color:#ff0080;" value="#ff0080">&#9724; Rosa</option>
                     </select>
                   </div>
-
+                  
+                  <input type="hidden" name="user_id" value="1" />
                   <div class="modal-footer">
-                    <button type="button" class="btn-calendar">Añadir evento</button>
+                    <button type="submit" class="btn-calendar">Añadir evento</button>
                   </div>
 
                 </form>
               </div>
             </div>
           </div>
-
-
 
           <!-- EDITAR EVENTO CALENDARIO -->
           <div class="modal fade" id="modal2" tabindex="-1" role="dialog">
@@ -448,7 +454,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
   <script src='assets/vendor/fullcalendar/fullcalendar.js'></script>
   <script src='assets/vendor/fullcalendar/locale/es.js'></script>
 
-  
+
 
   <script>
     $(document).ready(function() {
