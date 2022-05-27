@@ -14,7 +14,7 @@ class Connect {
      * @param string $password Contraseña de la base de datos. Por defecto
      * la contraseña se encuentra en blanco.
      */
-    public function __construct(string $username = "root", string $password = "55555") {
+    public function __construct(string $username = "david", string $password = "entorno2") {
         
         try {
             $this->pdo = new \PDO('mysql:host=localhost; dbname=gimnasio', $username, $password);
