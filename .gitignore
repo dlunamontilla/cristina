@@ -6,4 +6,4 @@ node_modules/
 *.mkv
 Herramientas
 conexion.php
-**Connect.php
+database/Connect.php
