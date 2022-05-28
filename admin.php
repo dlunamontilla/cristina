@@ -1,6 +1,10 @@
 <?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/../app/autoload.php"; /*Insertar archivo conexión a la base de datos*/
 
+use database\Connect;
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
 $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
