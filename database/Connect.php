@@ -29,4 +29,15 @@ class Connect {
     public function getPDO(): \PDO {
         return $this->pdo;
     }
+
+    /**
+     * Informa al cliente de la petición que el contenido
+     * que va a recibir será en formato JSON con
+     * codificación UTF-8.
+     * 
+     * @return void
+     */
+    public function setJSON():void  {
+        header("content-type: application/json; charset=utf-8");
+    }
 }

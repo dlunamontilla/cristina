@@ -14,7 +14,7 @@ class Events extends Connect {
      * @var \PDO
      */
     private $pdo;
-
+    
     public function __construct() {
         parent::__construct();
         $this->pdo = $this->getPDO();
@@ -35,7 +35,11 @@ class Events extends Connect {
      * @return array
      */
     public function get(): array {
-        $stmt = $this->pdo->prepare("SELECT * FROM dl_events");
+        $this->setJSON();
+
+        $pdo = $this->getPDO();
+
+        $stmt = $pdo->prepare("SELECT * FROM dl_events");
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

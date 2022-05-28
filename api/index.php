@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . "/../app/autoload.php";
 
-use app\DLTools\DLRequest;
+use assets\DLTools\DLRequest;
 use app\Events;
 
 $events = new Events;
@@ -24,6 +24,7 @@ $register_events = [
     "user_id" => true
 ];
 
+// Se comprueba que la petición ha sido exitoso.
 if ($request->post($register_events)) {
     $values = $request->getValues(":");
 
@@ -38,9 +39,17 @@ if ($request->post($register_events)) {
     $values[':initial_date'] = $initial_date;
     $values[':final_date'] = $final_date;
 
-    // echo json_encode($values);
+    // Justo en esta parte se produce el registro de eventos y se
+    // informa mediante «true» o «false» si el registro tuvo éxito.
     echo json_encode($events->register($values));
     exit;
 }
+
+// Carga los eventos
+if ($request->get(["events" => false])) {
+    echo json_encode($events->get());
+    exit;
+}
+
 
 echo json_encode($_POST);

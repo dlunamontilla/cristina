@@ -1,10 +1,3 @@
-<?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
-
-$sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
-// $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
-?>
-
 <!doctype html>
 <html lang="es-ES">
 
@@ -338,13 +331,8 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                       <input type="date" name="final_date" class="form-control" required="required" />
                     </div>
                     <div class="col-sm-6">
-<<<<<<< HEAD
                       <label for="end" class="control-label">Hora Final</label>
-                      <input type="time" name="end" class="form-control">
-=======
-                      <label for="end" class="control-label">Fecha Final</label>
                       <input type="time" name="final_time" class="form-control" required="required" />
->>>>>>> f6b55d4 (Implementación parcial del registro)
                     </div>
                   </div>
                   <div class="col-sm-12 mb-2">
@@ -364,7 +352,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                       <option style="color:#ff0080;" value="#ff0080">&#9724; Rosa</option>
                     </select>
                   </div>
-                  
+
                   <input type="hidden" name="user_id" value="1" />
                   <div class="modal-footer">
                     <button type="submit" class="btn-calendar">Añadir evento</button>
@@ -453,59 +441,6 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
   <script src='assets/vendor/moment/moment.min.js'></script>
   <script src='assets/vendor/fullcalendar/fullcalendar.js'></script>
   <script src='assets/vendor/fullcalendar/locale/es.js'></script>
-
-
-
-  <script>
-    $(document).ready(function() {
-      $('#calendar').fullCalendar({
-        locale: 'es',
-        initialView: 'timeGridDay',
-
-        header: { //botón de semana y agenda y orden a mostrar
-          left: 'prev, next, today',
-          center: 'title',
-          right: 'month,agendaWeek,agendaDay'
-        },
-
-        height: 500, //tamaño calendario
-        editable: true, //editable
-        navLinks: true, // poder navegar por dia, mes, etc.
-        selectable: true, //seleccionar varios días
-        selectMirror: true,
-        selectHelper: true,
-        eventLimit: true,
-        mostrarEventoEnd: true,
-        displayEventTime: true,
-
-        eventRender: function(event, element) {
-          element.bind('dblclick', function() {
-            $('#modal2 #id').val(event.id);
-            $('#modal2 #title').val(event.title);
-            $('#modal2 #color').val(event.color);
-            $('#modal2').modal('show');
-          });
-        },
-        events: [
-          <?php foreach ($sentencia as $fila) { ?> {
-              id: "<?php echo $fila["id"]; ?>",
-              title: "<?php echo $fila["title"]; ?>",
-              color: "<?php echo $fila["color"]; ?>",
-              start: "<?php echo $fila["start"]; ?>",
-              end: "<?php echo $fila["end"]; ?>",
-            },
-          <?php
-          }
-          ?>
-        ],
-        dayClick: function(fecha, javascriptEvent, vista) {
-          $("#modal-addEvent").modal('show');
-          $("#fecha_start").val(fecha.format());
-        },
-      });
-    });
-  </script>
-
 </body>
 
 </html>
