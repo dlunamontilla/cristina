@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . "/../app/autoload.php"; /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/app/autoload.php";
 
 use database\Connect;
 
