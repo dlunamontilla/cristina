@@ -24,9 +24,19 @@ class Connect {
     }
 
     /**
-     * @return \PDO
+     * @return \PDO Devuelve un objeto PDO
      */
     public function getPDO(): \PDO {
         return $this->pdo;
+    }
+
+    /**
+     * Le indica al cliente que hace la petición que los datos a recibir es
+     * en formato JSON.
+     * 
+     * @return void 
+     */
+    public function setJSON() {
+        header("content-type: application/json; charset=utf-8");
     }
 }
