@@ -2,9 +2,9 @@ import { saveFormDataToServer } from "./saveToServer.js";
 
 const formLogin = document.querySelector("#form-login");
 
-if (formLogin) formLogin.onsubmit = async function(e) {
+if (formLogin) formLogin.onsubmit = async function (e) {
     e.preventDefault();
-    
+
     const info = document.querySelector("#info");
     if (!info) return;
 
@@ -19,18 +19,18 @@ if (formLogin) formLogin.onsubmit = async function(e) {
         info.classList.add("error");
         info.textContent = "Revise que las credenciales sean correctas";
 
-        setTimeout(function() {
+        setTimeout(function () {
             info.classList.remove("error");
             info.textContent = "";
         }, 3500);
-        
+
         return;
     }
-    
+
     info.classList.add("passed");
     info.textContent = "Sesión iniciada correctamente";
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
         info.classList.remove("passed");
         info.textContent = "";
         parent.location = "./user.php";
@@ -40,14 +40,35 @@ if (formLogin) formLogin.onsubmit = async function(e) {
 // Registro de usuarios:
 const formRegisterUser = document.querySelector("#user-register");
 
-if (formRegisterUser) formRegisterUser.onsubmit = async function(e) {
+if (formRegisterUser) formRegisterUser.onsubmit = async function (e) {
     e.preventDefault();
     const data = await saveFormDataToServer(this);
 
+    const info = document.querySelector("#info");
+    if (!info) return;
+    
     if (!data.info) {
-        console.error("Lamentablemente, no se pudo crear el usuario, por favor, vuelva intentarlo");
+        const text = "Lamentablemente, no se pudo crear el usuario, por favor, vuelva intentarlo";
+
+        console.error(text);
+        info.textContent = text;
+        info.classList.add("error");
+
+
+        setTimeout(function () {
+            info.textContent = "";
+            info.classList.remove("error");
+        }, 5000);
+
         return;
     }
 
-    console.log({ data });
+    info.textContent = "Se ha suscrito exitosamente. Ya puede iniciar sesión";
+    info.classList.add("passed");
+
+    setTimeout(() => {
+        info.textContent = "";
+        info.classList.remove("passed");
+        parent.location = "./mi-cuenta.html";
+    }, 4000);
 }

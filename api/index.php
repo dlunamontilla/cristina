@@ -117,7 +117,6 @@ if ($request->post([
     echo json_encode(["info" => $info]);
 }
 
-
 if ($request->post([
     'email' => true, //Listo
     'password' => true, //Listo
@@ -136,5 +135,6 @@ if ($request->post([
     $values = (array) $request->getValues();
     $info = $user->create($values);
     echo json_encode(["info" => $info]);
+    exit;
 }
 // $user->close();

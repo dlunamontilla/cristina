@@ -115,12 +115,12 @@
                                 <!-- Selección de tarifa -->
                                 <div class="col-md-8 col-lg-9">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="invoice_id" id="6meses" value="1" disabled="disabled" required>
+                                        <input class="form-check-input" type="radio" name="invoice_id" id="6meses" value="1" required="required">
                                         <label for="6meses" class="form-check-label">6 meses</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="invoice_id" id="12meses" value="2" disabled="disabled" checked>
+                                        <input class="form-check-input" type="radio" name="invoice_id" id="12meses" value="2" checked="required">
                                         <label class="form-check-label" for="12meses">12 meses</label>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                               <div class="row mb-3">
                                   <label for="province_id" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
                                   <div class="col-md-8 col-lg-9">
-                                    <select class="form-select form-control" required="required">
+                                    <select class="form-select form-control" name="province_id" required="required">
                                       <option class="" selected>Seleccione Provincia...</option>
                                       <option value="1">Barcelona</option>
                                     </select>
@@ -374,14 +374,18 @@
                     <div class="row mb-3">
                       <label for="cuenta-bancaria" class="col-md-4 col-lg-3 col-form-label">Cuenta bancaria:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="cuenta-bancaria" type="text" class="form-control" id="cuenta-bancaria" required>
+                        <input name="cuenta-bancaria" type="text" class="form-control" id="cuenta-bancaria" required="required">
                       </div>
                     </div>
-          
+                    
                     <div class="modal-footer">
                       <button type="button" class="btn-get-started">REGISTRARSE</button>
                     </div>
+                    
+                    <hr>
+                    
                   </form>
+                  
                 </div> <!-- Fin Formulario Registro -->
           
               </div>
