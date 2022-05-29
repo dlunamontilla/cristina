@@ -1,7 +1,9 @@
 <?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
-
-$sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+include __DIR__ . "/app/autoload.php";
+use database\Connect;
+$connect = new Connect;
+$conexion = $connect->getPDO();
+$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>

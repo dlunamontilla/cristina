@@ -1,7 +1,11 @@
 <?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/app/autoload.php";
 
-$sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+use database\Connect;
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
+$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>
@@ -123,7 +127,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                         </a>
                     </li>
                     <li>
-                        <a href="factura.php" >
+                        <a href="factura.php">
                             <i class="bi bi-circle"></i><span>Factura</span>
                         </a>
                     </li>
@@ -316,16 +320,16 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     <div id="faqsOne-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                         <div class="accordion-body">
                                             <p>El espacio virtual de SaludFit te proponemos llevar una mejor salud mental con nuestras recomendaciones y un seguimiento de tu entrenamiento diario desde casa.</p>
-                                           <p>Para que disfrutes con nosotros te hemos preparado los diferentes apartados: </p>
-                                           <ul>
-                                               <li><b>Indicadores:</b> encontraras tus últimos accesos, un calendario para poder apuntarte cualquier evento importante y donde te aparecerán las actividades a las que te has apuntado, aparte de una lista de tareas para tener tus días más organizados.</li>
-                                               <li><b>Mi Perfil:</b> donde podrás ver tus datos con los que te inscribiste y poder editarlos tú mismo si hay algún cambio. Además podrás descargarte la factura e imprimirla.</li>
-                                               <li><b>Salud Mental:</b> donde podrás escuchar podcasts para mejorar tú mismo, conocerte más y ver la vida desde otro punto de vista, y unos cuantos libros recomendados de desarrollo y crecimiento personal recomendados por nosotros, dónde podrás ir directamente a comprarlos.</li>
-                                               <li><b>Actividades:</b> en este apartado podrás ver las actividades que se imparten en SaludFit, su horario y reservar para asistir a ellas, ya sea de manera presencial u online.</li>
-                                               <li><b>Entrenamiento:</b> te aconsejaremos estiramientos y buenos hábitos para un mejor estilo de vida y subiremos videos de ejercicios para que puedas realizarlos en cualquier momento.</li>
-                                               <li><b>Profesionales:</b> encontraras buenos profesionales tanto del deporte como la salud mental para poder contactar con ellos directamente y de manera personal.</li>
-                                           </ul>
-                                           <p>Puedes enviarnos las sugerencias o dudas que tengas, estaremos encantados de darte soluciones.</p>
+                                            <p>Para que disfrutes con nosotros te hemos preparado los diferentes apartados: </p>
+                                            <ul>
+                                                <li><b>Indicadores:</b> encontraras tus últimos accesos, un calendario para poder apuntarte cualquier evento importante y donde te aparecerán las actividades a las que te has apuntado, aparte de una lista de tareas para tener tus días más organizados.</li>
+                                                <li><b>Mi Perfil:</b> donde podrás ver tus datos con los que te inscribiste y poder editarlos tú mismo si hay algún cambio. Además podrás descargarte la factura e imprimirla.</li>
+                                                <li><b>Salud Mental:</b> donde podrás escuchar podcasts para mejorar tú mismo, conocerte más y ver la vida desde otro punto de vista, y unos cuantos libros recomendados de desarrollo y crecimiento personal recomendados por nosotros, dónde podrás ir directamente a comprarlos.</li>
+                                                <li><b>Actividades:</b> en este apartado podrás ver las actividades que se imparten en SaludFit, su horario y reservar para asistir a ellas, ya sea de manera presencial u online.</li>
+                                                <li><b>Entrenamiento:</b> te aconsejaremos estiramientos y buenos hábitos para un mejor estilo de vida y subiremos videos de ejercicios para que puedas realizarlos en cualquier momento.</li>
+                                                <li><b>Profesionales:</b> encontraras buenos profesionales tanto del deporte como la salud mental para poder contactar con ellos directamente y de manera personal.</li>
+                                            </ul>
+                                            <p>Puedes enviarnos las sugerencias o dudas que tengas, estaremos encantados de darte soluciones.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -348,7 +352,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     </h2>
                                     <div id="faqsTwo-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                         <div class="accordion-body">
-                                        <p>Si, estamos <b>abiertos los 363 días del año</b> incluido domingos y festivos de 9:00h a 22:00h</p>
+                                            <p>Si, estamos <b>abiertos los 363 días del año</b> incluido domingos y festivos de 9:00h a 22:00h</p>
                                         </div>
                                     </div>
                                 </div>
@@ -360,37 +364,37 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     </h2>
                                     <div id="faqsTwo-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                         <div class="accordion-body">
-                                           <ul>
+                                            <ul>
                                                 <li>Uso de toalla, ropa comoda y deportiva.</li>
                                                 <li>No se permitirá entrenar con chanclas o ropa baño/interior en las actividades dirigidas.</li>
                                                 <li>Es obligatorio dejar nuestras pertenecias en taquillas y en los sitios reservados para ello el material que se utiliza para entrenar.</li>
                                                 <li>Está prohibido fumar dentro del centro.</li>
-                                           </ul>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" data-bs-target="#faqsTwo-3" type="button" data-bs-toggle="collapse">
-                                        ¿Qué puedo hacer en el centro deportivo de SaludFit?
+                                            ¿Qué puedo hacer en el centro deportivo de SaludFit?
                                         </button>
                                     </h2>
                                     <div id="faqsTwo-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                         <div class="accordion-body">
-                                           Puedes acceder y utilizar cualquier máquina disponible y asistir a las actividades dirigidas que reservaste desde el espacio de clientes.
+                                            Puedes acceder y utilizar cualquier máquina disponible y asistir a las actividades dirigidas que reservaste desde el espacio de clientes.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" data-bs-target="#faqsTwo-4" type="button" data-bs-toggle="collapse">
-                                        ¿Qué máquinas hay en el centro?
+                                            ¿Qué máquinas hay en el centro?
                                         </button>
                                     </h2>
                                     <div id="faqsTwo-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                         <div class="accordion-body">
                                             <p>Disponemos de máquinas libres, de abductores/aductores, de abdominales, de aperturas, de pierna y muchas más, aparte de zonas de peso libre y calentamiento. </p>
-                                           <p>Puedes desarrollar el mejor entrenamiento con nosotros y si necesitas ayuda cualquier profesional del deporte de guiará a cómo conseguir tus objetivos de forma segura y sencilla.</p>
+                                            <p>Puedes desarrollar el mejor entrenamiento con nosotros y si necesitas ayuda cualquier profesional del deporte de guiará a cómo conseguir tus objetivos de forma segura y sencilla.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -402,7 +406,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     </h2>
                                     <div id="faqsTwo-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                         <div class="accordion-body">
-                                           Debes acudir al mismo centro y allí te atenderan para informarte de las posibilidades que tienes.
+                                            Debes acudir al mismo centro y allí te atenderan para informarte de las posibilidades que tienes.
                                         </div>
                                     </div>
                                 </div>
@@ -415,7 +419,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     <div id="faqsTwo-6" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                         <div class="accordion-body">
                                             <p>La edad mínima para inscribirse en nuestro gimnasio son 16 años.</p>
-                                           <p>Hasta que se cumpla la mayoría de edad, será necesario que el padre, madre o tutor autorice el alta y la domiciliación de la inscripción.</p>
+                                            <p>Hasta que se cumpla la mayoría de edad, será necesario que el padre, madre o tutor autorice el alta y la domiciliación de la inscripción.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -425,7 +429,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                 </div>
 
 
-                    
+
 
                 <div class="col-lg-6">
                     <!-- F.A.Q Grupo 3 -->
@@ -443,7 +447,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     </h2>
                                     <div id="faqsThree-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                         <div class="accordion-body">
-                                           En el menú lateral en "ACTIVIDADES / TODAS LAS ACTIVIDADES" encontrarás toda la información acerca de cada actividad: descripción, intensidad, calorías consumidas por clase... ¡Elige la que mejor se adapte a tus objetivos!
+                                            En el menú lateral en "ACTIVIDADES / TODAS LAS ACTIVIDADES" encontrarás toda la información acerca de cada actividad: descripción, intensidad, calorías consumidas por clase... ¡Elige la que mejor se adapte a tus objetivos!
                                         </div>
                                     </div>
                                 </div>
@@ -521,7 +525,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     </h2>
                                     <div id="faqsThree-7" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                         <div class="accordion-body">
-                                           A partir de los 16 años, ya que en el momento de inscribirse el padre, madre o tutor autorizará su alta y la domiciliación de la inscipción.
+                                            A partir de los 16 años, ya que en el momento de inscribirse el padre, madre o tutor autorizará su alta y la domiciliación de la inscipción.
                                         </div>
                                     </div>
                                 </div>
@@ -557,7 +561,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                     <div id="faqsFour-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-4">
                                         <div class="accordion-body">
                                             <p>Si se puede cambiar la modalidad del abono. </p>
-                                           <p>Podrás cambiarte a las que esten vigentes en el momento del cambio y deberas contactarlo o en recepción del centro o en "CONTACTO" del menú lateral.</p>
+                                            <p>Podrás cambiarte a las que esten vigentes en el momento del cambio y deberas contactarlo o en recepción del centro o en "CONTACTO" del menú lateral.</p>
                                         </div>
                                     </div>
                                 </div>

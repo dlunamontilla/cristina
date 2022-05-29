@@ -1,15 +1,20 @@
 <?php
-  include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/app/autoload.php";
 
-  $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+use database\Connect;
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
+$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>
 <html lang="es">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mi Factura</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Factura</title>
 
   <!--Icono navegación-->
   <link rel="shortcut icon" href="assets/img/logo.png">
@@ -117,7 +122,7 @@
         </a>
         <ul id="perfil-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="datos-personales.php" >
+            <a href="datos-personales.php">
               <i class="bi bi-circle"></i><span>Datos Personales</span>
             </a>
           </li>
@@ -163,7 +168,7 @@
             </a>
           </li>
           <li>
-            <a href="reservar.php" >
+            <a href="reservar.php">
               <i class="bi bi-circle"></i><span>Reservar</span>
             </a>
           </li>
@@ -249,8 +254,8 @@
                 <!-- Titulo -->
                 <div class="row">
                   <div class="factura-header">
-                      <i class="bi bi-paperclip"></i>
-                      <h3 class="title">FACTURA</h3>
+                    <i class="bi bi-paperclip"></i>
+                    <h3 class="title">FACTURA</h3>
                   </div>
                 </div><!-- Fin Titulo -->
 
@@ -279,7 +284,7 @@
                       <br>Email: andreamartinez@gmail.com
                     </address>
                   </div>
-                  
+
                   <div class="col-sm-2 col">
                     <h6>ID FACTURA</h6><br>
                     <h6>FECHA PAGO</h6><br>
@@ -304,7 +309,7 @@
                           <th>Importe</th>
                         </tr>
                       </thead>
-                      <tbody >
+                      <tbody>
                         <tr>
                           <td>1</td>
                           <td>Tarifa Anual</td>
@@ -318,13 +323,13 @@
 
                 <!-- Info IVA -->
                 <div class="row">
-                  <div class="col-md-9">  
+                  <div class="col-md-9">
                   </div>
 
                   <div class="col-md-3">
                     <div class="table-responsive">
                       <table class="table">
-                        <tbody >
+                        <tbody>
                           <tr>
                             <td style="width:60%">Subtotal sin IVA</td>
                             <td style="padding-left: 10px;">11,48</td>
@@ -364,21 +369,21 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
+      &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
     </div>
     <div class="credits">
-        <a href="terminos-y-condiciones.html">Términos y condiciones</a>
-        <a href="politica-de-privacidad.html">Política de privacidad</a>
-        <a href="politica-de-cookies.html">Política de cookies</a>
+      <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+      <a href="politica-de-privacidad.html">Política de privacidad</a>
+      <a href="politica-de-cookies.html">Política de cookies</a>
     </div>
   </footer><!-- Fin Footer -->
 
 
-   <!-- Vendor JS Files -->
-   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-   <!-- Archivo scripts JS -->
-   <script src='assets/js/main-admin.js'></script>
+  <!-- Archivo scripts JS -->
+  <script src='assets/js/main-admin.js'></script>
 
 </body>
 

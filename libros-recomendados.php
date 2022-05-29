@@ -1,7 +1,11 @@
 <?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/app/autoload.php";
 
-$sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+use database\Connect;
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
+$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>
@@ -141,7 +145,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                         </a>
                     </li>
                     <li>
-                        <a href="libros-recomendados.php"  class="active">
+                        <a href="libros-recomendados.php" class="active">
                             <i class="bi bi-circle"></i><span>Libros</span>
                         </a>
                     </li>

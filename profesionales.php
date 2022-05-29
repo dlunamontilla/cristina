@@ -1,7 +1,11 @@
 <?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/app/autoload.php";
 
-$sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+use database\Connect;
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
+$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>
@@ -123,7 +127,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                         </a>
                     </li>
                     <li>
-                        <a href="factura.php" >
+                        <a href="factura.php">
                             <i class="bi bi-circle"></i><span>Factura</span>
                         </a>
                     </li>
@@ -236,120 +240,120 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
             </nav>
         </div><!-- Fin Migas de pan -->
 
-    
-        <section class="section team mt-4"> 
 
-        <div class="row">
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/lidia.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Lidia Navarro</h4>
-                        <span>Entrenadores Personales</span>
-                        <div class="contact">
-                            <a href="mailto:lidianavarro@gmail.com"><i class="bi bi-envelope"> lidianavarro@gmail.com</i></a>
-                            <a href="tel:+34632232422"><i class="bi bi-whatsapp"> +34 632 232 422</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/alejandro.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Alejandro Baena</h4>
-                        <span>Instructores de Fitness</span>
-                        <div class="contact">
-                            <a href="mailto:alejandrobaena@gmail.com"><i class="bi bi-envelope"> alejandrobaena@gmail.com</i></a>
-                            <a href="tel:+34642533976"><i class="bi bi-whatsapp"> +34 642 533 976</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/carla.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Carla Cano</h4>
-                        <span>Servicios Generales</span>
-                        <div class="contact">
-                            <a href="mailto:carlacano@gmail.com"><i class="bi bi-envelope"> carlacano@gmail.com</i></a>
-                            <a href="tel:+34693524334"><i class="bi bi-whatsapp"> +34 693 524 334</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/hugo.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Hugo Vicente</h4>
-                        <span>Atención al cliente</span>
-                        <div class="contact">
-                            <a href="mailto:saludfit@gmail.com"><i class="bi bi-envelope"> saludfit@gmail.com</i></a>
-                            <a href="tel:+34953236578"><i class="bi bi-whatsapp"> +34 95 323 65 78</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/alejandra.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Alejandra López</h4>
-                        <span>Fisioterapeutas</span>
-                        <div class="contact">
-                            <a href="mailto:alejandralopez@gmail.com"><i class="bi bi-envelope"> alejandralopez@gmail.com</i></a>
-                            <a href="tel:+34632232422"><i class="bi bi-whatsapp"> +34 634 987 542</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="section team mt-4">
 
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/silvia.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Silvia Vidal</h4>
-                        <span>Nutricionistas</span>
-                        <div class="contact">
-                            <a href="mailto:jesusrivera@gmail.com"><i class="bi bi-envelope"> silviavidal@gmail.com</i></a>
-                            <a href="tel:+34686675324"><i class="bi bi-whatsapp"> +34 686 675 324</i></a>
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/lidia.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Lidia Navarro</h4>
+                            <span>Entrenadores Personales</span>
+                            <div class="contact">
+                                <a href="mailto:lidianavarro@gmail.com"><i class="bi bi-envelope"> lidianavarro@gmail.com</i></a>
+                                <a href="tel:+34632232422"><i class="bi bi-whatsapp"> +34 632 232 422</i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/alejandro.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Alejandro Baena</h4>
+                            <span>Instructores de Fitness</span>
+                            <div class="contact">
+                                <a href="mailto:alejandrobaena@gmail.com"><i class="bi bi-envelope"> alejandrobaena@gmail.com</i></a>
+                                <a href="tel:+34642533976"><i class="bi bi-whatsapp"> +34 642 533 976</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/carla.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Carla Cano</h4>
+                            <span>Servicios Generales</span>
+                            <div class="contact">
+                                <a href="mailto:carlacano@gmail.com"><i class="bi bi-envelope"> carlacano@gmail.com</i></a>
+                                <a href="tel:+34693524334"><i class="bi bi-whatsapp"> +34 693 524 334</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/hugo.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Hugo Vicente</h4>
+                            <span>Atención al cliente</span>
+                            <div class="contact">
+                                <a href="mailto:saludfit@gmail.com"><i class="bi bi-envelope"> saludfit@gmail.com</i></a>
+                                <a href="tel:+34953236578"><i class="bi bi-whatsapp"> +34 95 323 65 78</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/natalia.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Natalia Osona</h4>
-                        <span>Psicológos</span>
-                        <div class="contact">
-                            <a href="mailto:nataliaosona@gmail.com"><i class="bi bi-envelope"> nataliaosona@gmail.com</i></a>
-                            <a href="tel:+34672292298"><i class="bi bi-whatsapp"> +34 672 292 298</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="card" style="margin-bottom: 95px">
-                    <div class="pic"><img src="assets/img/team/mario.jpg" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Mario Garcia</h4>
-                        <span>Médicos</span>
-                        <div class="contact">
-                            <a href="mailto:mariogarcia@gmail.com"><i class="bi bi-envelope"> mariogarcia@gmail.com</i></a>
-                            <a href="tel:+34623948653"><i class="bi bi-whatsapp"> +34 623 948 653</i></a>
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/alejandra.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Alejandra López</h4>
+                            <span>Fisioterapeutas</span>
+                            <div class="contact">
+                                <a href="mailto:alejandralopez@gmail.com"><i class="bi bi-envelope"> alejandralopez@gmail.com</i></a>
+                                <a href="tel:+34632232422"><i class="bi bi-whatsapp"> +34 634 987 542</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/silvia.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Silvia Vidal</h4>
+                            <span>Nutricionistas</span>
+                            <div class="contact">
+                                <a href="mailto:jesusrivera@gmail.com"><i class="bi bi-envelope"> silviavidal@gmail.com</i></a>
+                                <a href="tel:+34686675324"><i class="bi bi-whatsapp"> +34 686 675 324</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/natalia.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Natalia Osona</h4>
+                            <span>Psicológos</span>
+                            <div class="contact">
+                                <a href="mailto:nataliaosona@gmail.com"><i class="bi bi-envelope"> nataliaosona@gmail.com</i></a>
+                                <a href="tel:+34672292298"><i class="bi bi-whatsapp"> +34 672 292 298</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card" style="margin-bottom: 95px">
+                        <div class="pic"><img src="assets/img/team/mario.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Mario Garcia</h4>
+                            <span>Médicos</span>
+                            <div class="contact">
+                                <a href="mailto:mariogarcia@gmail.com"><i class="bi bi-envelope"> mariogarcia@gmail.com</i></a>
+                                <a href="tel:+34623948653"><i class="bi bi-whatsapp"> +34 623 948 653</i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         </section>
     </main>

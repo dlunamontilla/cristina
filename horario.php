@@ -1,7 +1,11 @@
 <?php
-include("database/conexion.php"); /*Insertar archivo conexión a la base de datos*/
+include __DIR__ . "/app/autoload.php";
 
-$sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos de la tabla 'events'*/
+use database\Connect;
+
+$connect = new Connect;
+$conexion = $connect->getPDO();
+$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
 ?>
 
 <!doctype html>
@@ -31,7 +35,8 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
     <link href="assets/css/style-admin.css" rel="stylesheet">
 
     <style>
-        .horario .table tbody th, td{
+        .horario .table tbody th,
+        td {
             border: solid #fff 5px;
         }
     </style>
@@ -129,7 +134,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                         </a>
                     </li>
                     <li>
-                        <a href="factura.php" >
+                        <a href="factura.php">
                             <i class="bi bi-circle"></i><span>Factura</span>
                         </a>
                     </li>
@@ -142,7 +147,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                 </a>
                 <ul id="mente-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="podcasts.php" >
+                        <a href="podcasts.php">
                             <i class="bi bi-circle"></i><span>Podcasts</span>
                         </a>
                     </li>
@@ -267,7 +272,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                 </div>
                             </div> <!-- Fin Etiquetas -->
 
-                            <!-- Tabla -->  
+                            <!-- Tabla -->
                             <div class="table-responsive mb-4">
                                 <table class="table">
                                     <!-- Días de la semana -->
@@ -344,7 +349,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">BODY BALANCE</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila1.2 -->
+                                        </tr> <!-- Fin fila1.2 -->
 
                                         <!-- fila2 -->
                                         <tr>
@@ -391,7 +396,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name">CYCLING</div>
                                                 </div>
                                             </td>
-                                        </tr>   <!-- Fin fila2 -->
+                                        </tr> <!-- Fin fila2 -->
 
                                         <!-- fila3.1 -->
                                         <tr>
@@ -423,7 +428,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                 </div>
                                             </td>
                                             <td></td>
-                                        </tr>   <!-- Fin fila3.1 -->
+                                        </tr> <!-- Fin fila3.1 -->
 
                                         <!-- fila3.2 -->
                                         <tr>
@@ -505,7 +510,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
 
                                         <!-- fila5 -->
                                         <tr>
-                                            
+
                                             <th scope="row">13:00</th>
                                             <td>
                                                 <div class="activity-time tonifica-time">13:00-14:00</div>
@@ -531,8 +536,8 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">PILATES</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila5 -->
-                                        
+                                        </tr> <!-- Fin fila5 -->
+
                                         <!-- fila6 -->
                                         <tr>
                                             <th scope="row">14:00</th>
@@ -568,7 +573,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                             </td>
                                             <td></td>
                                             <td></td>
-                                        </tr>  <!-- Fin fila6 -->
+                                        </tr> <!-- Fin fila6 -->
 
                                         <!-- fila7.1 -->
                                         <tr>
@@ -600,7 +605,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                             </td>
                                             <td></td>
                                             <td></td>
-                                        </tr>  <!-- Fin fila7.1 -->
+                                        </tr> <!-- Fin fila7.1 -->
 
                                         <!-- fila7.2 -->
                                         <tr>
@@ -631,11 +636,11 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                             </td>
                                             <td></td>
                                             <td></td>
-                                        </tr>  <!-- Fin fila7.2 -->
+                                        </tr> <!-- Fin fila7.2 -->
 
                                         <!-- fila8.1 -->
                                         <tr>
-                                            
+
                                             <th scope="row" rowspan="2">16:00</th>
                                             <td>
                                                 <div class="activity-time relax-time">16:15-17:00</div>
@@ -661,11 +666,11 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">TAI CHI</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila8.1 -->
+                                        </tr> <!-- Fin fila8.1 -->
 
                                         <!-- fila8.2 -->
                                         <tr>
-                                            
+
                                             <td>
                                                 <div class="activity-time quemaCal-time">16:30-17:00</div>
                                                 <div class="activity-cue quemaCal">
@@ -688,7 +693,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                             </td>
                                             <td></td>
                                             <td></td>
-                                        </tr>  <!-- Fin fila8.2 -->
+                                        </tr> <!-- Fin fila8.2 -->
 
                                         <!-- fila9 -->
                                         <tr>
@@ -725,7 +730,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                             </td>
                                             <td></td>
                                             <td></td>
-                                        </tr>  <!-- Fin fila9 -->
+                                        </tr> <!-- Fin fila9 -->
 
                                         <!-- fila10.1 -->
                                         <tr>
@@ -772,7 +777,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">BODY PUMP</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila10.1 -->
+                                        </tr> <!-- Fin fila10.1 -->
 
                                         <!-- fila10.2 -->
                                         <tr>
@@ -806,7 +811,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">GAP</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila10.2 -->
+                                        </tr> <!-- Fin fila10.2 -->
 
                                         <!-- fila11.1 -->
                                         <tr>
@@ -836,7 +841,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">PILATES</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila11.1 -->
+                                        </tr> <!-- Fin fila11.1 -->
 
                                         <!-- fila11.2 -->
                                         <tr>
@@ -862,7 +867,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                        </tr>  <!-- Fin fila11.2 -->
+                                        </tr> <!-- Fin fila11.2 -->
 
                                         <!-- fila11.3 -->
                                         <tr>
@@ -908,7 +913,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">CROSSFIT</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila11.3 -->
+                                        </tr> <!-- Fin fila11.3 -->
 
                                         <!-- fila12.1 -->
                                         <tr>
@@ -955,7 +960,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name">CYCLING</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila12.1 -->
+                                        </tr> <!-- Fin fila12.1 -->
 
                                         <!-- fila12.2 -->
                                         <tr>
@@ -995,7 +1000,7 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name">CYCLING</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila12.2 -->
+                                        </tr> <!-- Fin fila12.2 -->
 
                                         <!-- fila13 -->
                                         <tr>
@@ -1024,12 +1029,12 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
                                                     <div class="activity-name ">BODY PUMP</div>
                                                 </div>
                                             </td>
-                                        </tr>  <!-- Fin fila13 -->
+                                        </tr> <!-- Fin fila13 -->
 
                                     </tbody> <!-- Fin Clases -->
 
                                 </table>
-                            </div><!-- Fin Tabla --> 
+                            </div><!-- Fin Tabla -->
 
                         </div>
                     </div>
@@ -1039,23 +1044,23 @@ $sentencia = $conexion->query('SELECT * FROM events'); /*Mostrar todos los datos
     </main>
 
 
-   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-        &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
-    </div>
-    <div class="credits">
-        <a href="terminos-y-condiciones.html">Términos y condiciones</a>
-        <a href="politica-de-privacidad.html">Política de privacidad</a>
-        <a href="politica-de-cookies.html">Política de cookies</a>
-    </div>
-  </footer><!-- Fin Footer -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
+        </div>
+        <div class="credits">
+            <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+            <a href="politica-de-privacidad.html">Política de privacidad</a>
+            <a href="politica-de-cookies.html">Política de cookies</a>
+        </div>
+    </footer><!-- Fin Footer -->
 
-   <!-- Vendor JS Files -->
-   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-   <!-- Archivo scripts JS -->
-   <script src='assets/js/main-admin.js'></script>
+    <!-- Archivo scripts JS -->
+    <script src='assets/js/main-admin.js'></script>
 
 </body>
 
