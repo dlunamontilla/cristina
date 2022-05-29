@@ -1581,9 +1581,6 @@ button {
   border-radius: 4px;
 
   border: 1px solid;
-  min-height: 100px;
-  background-color: red;
-  color: white;
 }
 
 .passed,

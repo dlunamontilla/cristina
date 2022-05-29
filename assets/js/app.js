@@ -43,10 +43,11 @@ const formRegisterUser = document.querySelector("#user-register");
 if (formRegisterUser) formRegisterUser.onsubmit = async function (e) {
     e.preventDefault();
     const data = await saveFormDataToServer(this);
+    console.log({ data });
 
     const info = document.querySelector("#info");
     if (!info) return;
-    
+
     if (!data.info) {
         const text = "Lamentablemente, no se pudo crear el usuario, por favor, vuelva intentarlo";
 
@@ -72,3 +73,19 @@ if (formRegisterUser) formRegisterUser.onsubmit = async function (e) {
         parent.location = "./mi-cuenta.html";
     }, 4000);
 }
+
+// Abrir la ventana modal:
+const buttons = document.querySelectorAll("[data-bs-target='#modal-register']");
+
+buttons.forEach(button => {
+    const { suscription } = button.dataset;
+
+    if (!suscription ) return;
+    const radio = document.querySelector(`#${suscription}`);
+
+    console.log({ suscription, radio });
+    
+    button.onclick = () => {
+        radio.checked = true;
+    }
+});
