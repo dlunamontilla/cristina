@@ -25,11 +25,11 @@ const saveFormDataToServer = async (form, jsonFormat = false) => {
             if (!response.ok) console.error(response.status);
 
             if (jsonFormat) {
-                const data = await response.text();
+                const data = await response.json();
                 return data;
             }
 
-            const data = await response.text();
+            const data = await response.json();
             // form.reset();
             return data;
         },
@@ -45,11 +45,11 @@ const saveFormDataToServer = async (form, jsonFormat = false) => {
             if (!response.ok) console.error(response.status);
 
             if (jsonFormat) {
-                const data = await response.text();
+                const data = await response.json();
                 return data;
             }
 
-            const data = await response.text();
+            const data = await response.json();
             // form.reset();
 
             return data;
@@ -60,4 +60,8 @@ const saveFormDataToServer = async (form, jsonFormat = false) => {
         const data = await methods[method]();
         return data;
     }
+}
+
+export {
+    saveFormDataToServer
 }

@@ -12,10 +12,6 @@
 
     if (!addTask || !taskList) return;
 
-    console.log({ taskList, addTask });
-
-    let count = 0;
-
     const getData = async () => {
         const response = await fetch('api/?tasklist');
         if (!response.ok) {
@@ -133,17 +129,6 @@
     const actions = {
         "delete": function (element, ids) {
             element.parentNode.parentNode.remove();
-
-            console.log({ ids });
-
-            return;
-            const data = elements.filter(element => {
-                return element.id !== +id;
-            });
-
-            elements.length = 0;
-            elements.push(data);
-            localStorage.setItem("elements", JSON.stringify(data));
         }
     };
 
@@ -155,9 +140,7 @@
         formData.set('id', Number(id));
         formData.set('user_id', Number(userId));
 
-        const data = await post(e, formData, true);
-
-        console.log({ action: "delete", data });
+        await post(e, formData, true);
 
         if (action) {
             if (typeof actions[action] === "function") {

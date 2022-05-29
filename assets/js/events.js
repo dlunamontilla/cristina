@@ -10,7 +10,6 @@ async function getEvents() {
     }
 
     const data = await response.json();
-    console.log({ data });
 
     return data.map(row => {
         const { events_id, events_title, events_color, events_start, events_end } = row;
@@ -29,7 +28,6 @@ async function getEvents() {
 
 async function createCalendar() {
     const data = await getEvents();
-    console.log({ data });
     
     $('#calendar').fullCalendar({
         locale: 'es',

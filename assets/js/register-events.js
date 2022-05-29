@@ -43,50 +43,45 @@ async function getEvents() {
  */
 async function createCalendar() {
     const data = await getEvents();
-    console.log({ "Datos obtenidos": data });
 
 
     const events = {
-    locale: 'es',
-    initialView: 'timeGridDay',
+        locale: 'es',
+        initialView: 'timeGridDay',
 
-    header: { //botón de semana y agenda y orden a mostrar
-        left: 'prev, next, today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-    },
+        header: { //botón de semana y agenda y orden a mostrar
+            left: 'prev, next, today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
 
-    height: 500, //tamaño calendario
-    editable: true, //editable
-    navLinks: true, // poder navegar por dia, mes, etc.
-    selectable: true, //seleccionar varios días
-    selectMirror: true,
-    selectHelper: true,
-    eventLimit: true,
-    mostrarEventoEnd: true,
-    displayEventTime: true,
+        height: 500, //tamaño calendario
+        editable: true, //editable
+        navLinks: true, // poder navegar por dia, mes, etc.
+        selectable: true, //seleccionar varios días
+        selectMirror: true,
+        selectHelper: true,
+        eventLimit: true,
+        mostrarEventoEnd: true,
+        displayEventTime: true,
 
-    eventRender: function (event, element) {
-        element.bind('dblclick', function () {
-            $('#modal2 #id').val(event.id);
-            $('#modal2 #title').val(event.title);
-            $('#modal2 #color').val(event.color);
-            $('#modal2').modal('show');
-        });
-    },
+        eventRender: function (event, element) {
+            element.bind('dblclick', function () {
+                $('#modal2 #id').val(event.id);
+                $('#modal2 #title').val(event.title);
+                $('#modal2 #color').val(event.color);
+                $('#modal2').modal('show');
+            });
+        },
 
-    events: data,
+        events: data,
 
-    dayClick: function (fecha, javascriptEvent, vista) {
-        $("#modal-addEvent").modal('show');
-        $("#fecha_start").val(fecha.format());
-    },
-
-    eventClick: function (e) {
-        console.log({ this: this, e })
+        dayClick: function (fecha, javascriptEvent, vista) {
+            $("#modal-addEvent").modal('show');
+            $("#fecha_start").val(fecha.format());
+        },
     }
-}
-    // return;
+
     $('#calendar').fullCalendar(events);
     $('#calendar').fullCalendar('render');
 }
