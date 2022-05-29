@@ -117,4 +117,25 @@ if ($request->post([
     echo json_encode(["info" => $info]);
 }
 
+
+if ($request->post([
+    'email' => true,
+    'password' => true,
+    'name' => true,
+    'lastname' => true,
+    'date_of_birth' => true,
+    'postal_address' => true,
+    'locality' => true,
+    'dni' => true,
+    'bank_account' => true,
+    'gender' => true,
+    'phone' => true,
+    'province_id' => true,
+    'role_id' => true,
+    'invoice_id' => true
+])) {
+    $values = (array) $request->getValues();
+    $info = $user->create($values);
+    echo json_encode(["info" => $info]);
+}
 // $user->close();

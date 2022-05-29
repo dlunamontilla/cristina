@@ -64,4 +64,64 @@ class User extends Connect {
     public function close(): bool {
         return setcookie('token', '', time() - 5000);
     }
+
+    /**
+     * @param array $param Datos del formulario de registro de usuarios.
+     * @return bool Devuelve verdadero si ha sido creado con éxito el usuario, de lo contrario
+     * devuelve falso.
+     */
+    public function create(array $param): bool {
+        $pdo = $this->getPDO();
+
+        $data = (object) $param;
+
+        $stmt = $pdo->prepare('INSERT INTO dl_users(
+            `email`,
+            `password`,
+            `name`,
+            `lastname`,
+            `date_of_birth`,
+            `postal_address`,
+            `locality`,
+            `DNI`,
+            `bank_account`,
+            `gender`,
+            `phone`,
+            `province_id`,
+            `role_id`,
+            `invoice_id`
+            ) VALUES(
+                :email,
+                :password,
+                :name,
+                :lastname,
+                :date_of_birth,
+                :postal_address,
+                :locality,
+                :dni,
+                :bank_account,
+                :gender,
+                :phone,
+                :province_id,
+                :role_id,
+                :invoice_id
+            )');
+
+        return $stmt->execute([
+            ':email' => (string) $data->email,
+            ':password' => (string) sha1($data->password),
+            ':name' => (string) $data->name,
+            ':lastname' => (string) $data->lastname,
+            ':date_of_birth' => (string) $data->date_of_birth,
+            ':postal_address' => (string) $data->postal_address,
+            ':locality' => (string) $data->locality,
+            ':dni' => (string) $data->dni,
+            ':bank_account' => (string) $data->bank_account,
+            ':gender' => (string) $data->gender,
+            ':phone' => (string) $data->phone,
+            ':province_id' => (int) $data->province_id,
+            ':role_id' => (int) $data->role_id,
+            ':invoice_id' => (int) $data->invoice_id
+        ]);
+    }
 }
