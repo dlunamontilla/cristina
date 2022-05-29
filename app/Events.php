@@ -43,4 +43,19 @@ class Events extends Connect {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Devuelve eventos por grupo y cantidad
+     * 
+     * @return array
+     */
+    public function getByVolume(): array {
+        $this->setJSON();
+
+        $pdo = $this->getPDO();
+
+        $stmt = $pdo->prepare("SELECT count(*) as count, events_title FROM dl_events GROUP BY events_title;");
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }

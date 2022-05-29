@@ -1,4 +1,5 @@
-(function() {
+(async function () {
+
     /**
      * 
      * @param { string } selector 
@@ -7,19 +8,27 @@
     const getElements = (selector) => document.querySelectorAll(selector);
 
 
-    const [taskList, addTask] = getElements("#add-task, #lista-nav");
+    const [taskList, addTask] = getElements("#lista-nav, #add-tasklist");
 
     if (!addTask || !taskList) return;
 
+    console.log({ taskList, addTask });
+
     let count = 0;
 
-    const elements = [];
+    const getData = async () => {
+        const response = await fetch('api/?tasklist');
+        if (!response.ok) {
+            console.error("Lamentablemente, no se pudo procesar la petición. Por favor, vuelve a intentarlo");
+            return [];
+        }
 
-    const stringElements = localStorage.getItem("elements");
-
-    if (stringElements) {
-        elements.push(...JSON.parse(stringElements));
+        const data = await response.json();
+        return data;
     }
+
+    const elements = await getData();
+    let id = elements[0]?.tasklist_id | 0;
 
     /**
      * 
@@ -27,18 +36,18 @@
      * @returns { string }
      */
     function addList(element) {
-        const { id, text } = element;
+        const { tasklist_id, tasklist_name, users_id } = element;
 
-        if (!id, !text) return "";
+        if (!tasklist_id || !users_id || !tasklist_name) return "";
 
-        const list = `<li class="list fadeIn" data-id="${id}">
+        const list = `<li class="list fadeIn" data-id="${tasklist_id}" data-user-id="${users_id}">
                 <label class="list__label">
-                    <input type="checkbox" name="list[${id}]" value="${text}">
-                    <span autofocus="autofocus">${text}</span>
+                    <input type="checkbox" name="list[${tasklist_id}]" value="${tasklist_name}" data-user-id="${users_id}">
+                    <span autofocus="autofocus">${tasklist_name}</span>
                 </label>
     
                 <div class="list__options" id="options">
-                    <div class="list__options__icon" data-action="delete" data-id="${id}">
+                    <div class="list__options__icon" data-action="delete" data-id="${tasklist_id}" data-user-id="${users_id}">
                         <button class="button">
                             &times;
                         </button>
@@ -49,31 +58,76 @@
         return list;
     }
 
-    elements.forEach(element => {
-        const list = addList(element);
-        taskList.insertAdjacentHTML('beforeend', list);
-    });
+    const getList = async () => {
+        taskList.textContent = "";
 
+        const data = await getData();
 
-    addTask.onclick = () => {
+        elements.length = 0;
+        elements.push(...data);
+
+        elements.forEach(element => {
+            const list = addList(element);
+            taskList.insertAdjacentHTML('beforeend', list);
+        });
+    }
+
+    getList();
+
+    /**
+     * 
+     * @param { SubmitEvent} e Evento de formulario
+     * @param {HTMLFormElement} form 
+     * @returns 
+     */
+    const saveTaskList = async (e, form) => {
+        const { action, method } = form;
+        const formData = new FormData(form);
+        
+        const response = await fetch(action, {
+            method,
+            body: formData,
+            credentials: 'same-origin',
+            mode: 'same-origin'
+        });
+
+        if (!response.ok) console.error(response.status);
+
+        const data = await response.json();
+        return data;
+    }
+
+    addTask.onsubmit = async (e) => {
+        e.preventDefault();
+
+        
         let textContent = prompt("Ingrese una descripción: ");
         if (!textContent) return;
 
-        const element = {
-            id: ++count,
-            taskname: textContent.replace(" ", "-"),
-            text: textContent
-        };
+        const tasklistName = e.target.querySelector("#tasklist_name");
+        const userID = e.target.querySelector("#users_id");
+        
+        if (!tasklistName || !userID) {
+            return;
+        }
 
-        elements.push(element);
-        localStorage.setItem("elements", JSON.stringify(elements));
+        tasklistName.value = textContent;
+        userID.value = 1;
 
-        const list = addList(element);
-        taskList.insertAdjacentHTML('beforeend', list);
+        const data = await saveTaskList(e, e.target);
+        if (!data.info) return;
+
+        const formData = new FormData(e.target);
+        const fields = Object.fromEntries(formData.entries());
+
+        fields.tasklist_id = ++id;
+
+        const html = addList(fields);
+        taskList.insertAdjacentHTML('afterbegin', html);
     };
 
     const actions = {
-        "delete": function(element, id) {
+        "delete": function (element, id) {
             element.parentNode.parentNode.remove();
 
             const data = elements.filter(element => {

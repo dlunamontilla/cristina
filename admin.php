@@ -1,15 +1,5 @@
-<?php
-include __DIR__ . "/app/autoload.php";
-
-use database\Connect;
-
-$connect = new Connect;
-$conexion = $connect->getPDO();
-$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
-?>
-
 <!doctype html>
-<html lang="es">
+<html lang="es-ES">
 
 <head>
     <meta charset="utf-8">

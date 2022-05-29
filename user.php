@@ -294,10 +294,15 @@
             <div class="card-body pb-0">
               <h5 class="card-title">Lista de tareas</h5>
 
-              <!-- Lista de tareas -->
+              <!-- Lista de tareas obtenidas de la base de datos -->
               <ul class="to_do" id="lista-nav" data-bs-toggle="collapse" href="#"></ul>
 
-              <button class="button button--add" id="add-task">Agregar tarea</button>
+              
+              <form action="api/" method="post" id="add-tasklist">
+                <input type="hidden" name="tasklist_name" id="tasklist_name" value="" />
+                <input type="hidden" name="users_id" id="users_id" value="1" />
+                <button type="submit" class="button button--add" id="add-task">Agregar tarea</button>
+              </form>
             </div>
           </div>
           <!-- Fin Columna Tareas-->

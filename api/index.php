@@ -3,6 +3,8 @@ include __DIR__ . "/../app/autoload.php";
 
 use assets\DLTools\DLRequest;
 use app\Events;
+use app\Indicators;
+use app\TaskList;
 
 $events = new Events;
 $request = new DLRequest;
@@ -51,5 +53,42 @@ if ($request->get(["events" => false])) {
     exit;
 }
 
+// Carga los eventos
+if ($request->get(["eventsByGroup" => false])) {
+    echo json_encode($events->getByVolume());
+    exit;
+}
 
-echo json_encode($_POST);
+// Obtener información:
+if ($request->get(["info" => false])) {
+    header("content-type: application/json; charset=utf-8");
+    echo json_encode($_SERVER);
+    exit;
+}
+
+// Obtener una lista de tareas:
+if ($request->get(["tasklist" => false])) {
+    $tasklist = new TaskList;
+    echo $tasklist->get();
+    exit;
+}
+
+// Crear una lista de tareas:
+if ($request->post([
+    'tasklist_name' => true,
+    'users_id' => true
+])) {
+    $values = $request->getValues();
+
+    $tasklist = new TaskList;
+    $isSet = $tasklist->set((array) $values);
+
+    echo json_encode(["info" => $isSet]);
+    exit;
+}
+
+$indicators = new Indicators;
+
+echo $indicators->getDeviceName();
+
+// echo json_encode($_POST);

@@ -1,12 +1,3 @@
-<?php
-include __DIR__ . "/app/autoload.php";
-use database\Connect;
-$connect = new Connect;
-$conexion = $connect->getPDO();
-
-$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
-?>
-
 <!doctype html>
 <html lang="es">
 
@@ -167,7 +158,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
             </a>
           </li>
           <li>
-            <a href="reservar.php" >
+            <a href="reservar.php">
               <i class="bi bi-circle"></i><span>Reservar</span>
             </a>
           </li>
@@ -336,7 +327,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                     <div class="col-lg-9 col-md-8">Aldaia</div>
                   </div>
 
-                  
+
 
                 </div>
                 <!--Fin Mis Datos -->
@@ -355,7 +346,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                     <div class="row mb-3">
                       <label for="apellidos" class="col-md-4 col-lg-3 col-form-label">Apellidos:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="apellidos" type="text" class="form-control" id="apellidos" value="Martinez Lozano" required> 
+                        <input name="apellidos" type="text" class="form-control" id="apellidos" value="Martinez Lozano" required>
                       </div>
                     </div>
 

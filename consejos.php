@@ -1,13 +1,5 @@
-<?php
-include __DIR__ . "/app/autoload.php";
-use database\Connect;
-$connect = new Connect;
-$conexion = $connect->getPDO();
-$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
-?>
-
 <!doctype html>
-<html lang="es">
+<html lang="es-ES">
 
 <head>
     <meta charset="utf-8">
@@ -125,7 +117,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                         </a>
                     </li>
                     <li>
-                        <a href="factura.php" >
+                        <a href="factura.php">
                             <i class="bi bi-circle"></i><span>Factura</span>
                         </a>
                     </li>
@@ -138,7 +130,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                 </a>
                 <ul id="mente-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="podcasts.php" >
+                        <a href="podcasts.php">
                             <i class="bi bi-circle"></i><span>Podcasts</span>
                         </a>
                     </li>
@@ -156,7 +148,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                 </a>
                 <ul id="act-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="todas-actividades.php" >
+                        <a href="todas-actividades.php">
                             <i class="bi bi-circle"></i><span>Todas las actividades</span>
                         </a>
                     </li>
@@ -240,60 +232,60 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
             </nav>
         </div><!-- Fin Migas de pan -->
 
-        
+
         <section class="section consejos">
 
             <!-- Consejos -->
             <div class="row">
                 <!-- Consejo1 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Calentar antes del entrenamiento</h5>
-						<p class="description">Antes de hacer ejercicio calendar al menos durante cinco minutos, el calentamiento puede ser caminar a paso ligero sobre la cinta de correr.</p>
-					</div>
-				</div>
+                    <div class="consejo">
+                        <h5 class="title">Calentar antes del entrenamiento</h5>
+                        <p class="description">Antes de hacer ejercicio calendar al menos durante cinco minutos, el calentamiento puede ser caminar a paso ligero sobre la cinta de correr.</p>
+                    </div>
+                </div>
                 <!-- Consejo2 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Hacer cardio después de las pesas</h5>
-						<p class="description">Ya sea nuestro objetivo ganar músculo o perder grasa, si usamos antes las pesas conseguiremos tener mayor fuerza que si se hace a la inversa.</p>
-					</div>
-				</div>
+                    <div class="consejo">
+                        <h5 class="title">Hacer cardio después de las pesas</h5>
+                        <p class="description">Ya sea nuestro objetivo ganar músculo o perder grasa, si usamos antes las pesas conseguiremos tener mayor fuerza que si se hace a la inversa.</p>
+                    </div>
+                </div>
                 <!-- Consejo3 -->
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Tener una actitud positiva</h5>
-						<p class="description">Con una actitud positiva conseguirás resultados, por el contrario con una actitud negativa no te llevará a ningún lado.</p>
-					</div>
-				</div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="consejo">
+                        <h5 class="title">Tener una actitud positiva</h5>
+                        <p class="description">Con una actitud positiva conseguirás resultados, por el contrario con una actitud negativa no te llevará a ningún lado.</p>
+                    </div>
+                </div>
                 <!-- Consejo4 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Convertir el ejercicio en una rutina</h5>
+                    <div class="consejo">
+                        <h5 class="title">Convertir el ejercicio en una rutina</h5>
                         <p class="description">El ejercicio se debe tomar como una rutina que hacemos todos los días para así no verlo como una obligación. Ser constantes y hacer ejercicio mínimo dos o tres días por sermana.</p>
-					</div>
-				</div>
+                    </div>
+                </div>
                 <!-- Consejo5 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Descansar nuestras horas</h5>
-						<p class="description">Comer saludable después de hacer ejercicio, dormir de siete a nueve horas, reducir el estrés y descansar son aspectos vitales para conseguir resultados óptimos.</p>
-					</div>
-				</div>
+                    <div class="consejo">
+                        <h5 class="title">Descansar nuestras horas</h5>
+                        <p class="description">Comer saludable después de hacer ejercicio, dormir de siete a nueve horas, reducir el estrés y descansar son aspectos vitales para conseguir resultados óptimos.</p>
+                    </div>
+                </div>
                 <!-- Consejo6 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Usar el equipo correcto</h5>
-						<p class="description">Si no hacemos uso del calzado correcto no estarás comodo y puedes terminar con lesiones graves. Siempre tener en tu bolsa de deporte una botella de agua, toalla y guantillas si haces pesas.</p>
-					</div>
-				</div>
+                    <div class="consejo">
+                        <h5 class="title">Usar el equipo correcto</h5>
+                        <p class="description">Si no hacemos uso del calzado correcto no estarás comodo y puedes terminar con lesiones graves. Siempre tener en tu bolsa de deporte una botella de agua, toalla y guantillas si haces pesas.</p>
+                    </div>
+                </div>
                 <!-- Consejo7 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Rodéate de personas con tus mismas metas</h5>
-						<p class="description">La gente de tu alrededor nos puede condicionar mucho, si nos juntamos con personas con las mismas metas que nosotros podemos aprender a llevar una vida sana.</p>
-					</div>
-				</div>
+                    <div class="consejo">
+                        <h5 class="title">Rodéate de personas con tus mismas metas</h5>
+                        <p class="description">La gente de tu alrededor nos puede condicionar mucho, si nos juntamos con personas con las mismas metas que nosotros podemos aprender a llevar una vida sana.</p>
+                    </div>
+                </div>
                 <!-- Consejo8 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="consejo">
@@ -303,35 +295,35 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                 </div>
                 <!-- Consejo9 -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="consejo">
-						<h5 class="title">Busca ayuda y habla con un especialista</h5>
-						<p class="description">Si buscas la manera más efectiva de hacer ejercicio lo ideal es programar una serie de citas con uno de nuestros entrenadores personales.</p>
-					</div>
-				</div>
+                    <div class="consejo">
+                        <h5 class="title">Busca ayuda y habla con un especialista</h5>
+                        <p class="description">Si buscas la manera más efectiva de hacer ejercicio lo ideal es programar una serie de citas con uno de nuestros entrenadores personales.</p>
+                    </div>
+                </div>
 
             </div><!-- Fin Consejos -->
         </section>
 
     </main>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-            <div class="copyright">
-                &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
-            </div>
-            <div class="credits">
-                <a href="terminos-y-condiciones.html">Términos y condiciones</a>
-                <a href="politica-de-privacidad.html">Política de privacidad</a>
-                <a href="politica-de-cookies.html">Política de cookies</a>
-            </div>
-        </footer><!-- Fin Footer -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
+        </div>
+        <div class="credits">
+            <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+            <a href="politica-de-privacidad.html">Política de privacidad</a>
+            <a href="politica-de-cookies.html">Política de cookies</a>
+        </div>
+    </footer><!-- Fin Footer -->
 
 
-        <!-- Vendor JS Files -->
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Archivo scripts JS -->
-        <script src='assets/js/main-admin.js'></script>
+    <!-- Archivo scripts JS -->
+    <script src='assets/js/main-admin.js'></script>
 
 </body>
 
