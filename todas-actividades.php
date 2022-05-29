@@ -525,7 +525,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                         <div class="imagen-iconos">
                                             <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
                                             &nbsp;&nbsp;
-                                            <i class="bi bi-lightning"></i><span>200kcal</span>
+                                            <i class="bi bi-lightning"></i><span>200kcal</span> 
                                         </div>
                                     </div>
 
