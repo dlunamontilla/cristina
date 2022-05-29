@@ -80,10 +80,12 @@
      * @param {HTMLFormElement} form 
      * @returns 
      */
-    const saveTaskList = async (e, form) => {
-        const { action, method } = form;
-        const formData = new FormData(form);
-        
+    const post = async (e, form, isFormData = false) => {
+        const { action = 'api/', method = "POST" } = form;
+        const formData = isFormData
+            ? form
+            : new FormData(form);
+
         const response = await fetch(action, {
             method,
             body: formData,
@@ -100,13 +102,13 @@
     addTask.onsubmit = async (e) => {
         e.preventDefault();
 
-        
+
         let textContent = prompt("Ingrese una descripción: ");
         if (!textContent) return;
 
         const tasklistName = e.target.querySelector("#tasklist_name");
         const userID = e.target.querySelector("#users_id");
-        
+
         if (!tasklistName || !userID) {
             return;
         }
@@ -114,7 +116,8 @@
         tasklistName.value = textContent;
         userID.value = 1;
 
-        const data = await saveTaskList(e, e.target);
+        const data = await post(e, e.target);
+
         if (!data.info) return;
 
         const formData = new FormData(e.target);
@@ -122,14 +125,18 @@
 
         fields.tasklist_id = ++id;
 
+
         const html = addList(fields);
         taskList.insertAdjacentHTML('afterbegin', html);
     };
 
     const actions = {
-        "delete": function (element, id) {
+        "delete": function (element, ids) {
             element.parentNode.parentNode.remove();
 
+            console.log({ ids });
+
+            return;
             const data = elements.filter(element => {
                 return element.id !== +id;
             });
@@ -140,13 +147,23 @@
         }
     };
 
-    taskList.onclick = (e) => {
+    taskList.onclick = async (e) => {
         const element = e.target;
-        const { action, id } = element.dataset;
+        const { action, id, userId } = element.dataset;
+
+        const formData = new FormData();
+        formData.set('id', Number(id));
+        formData.set('user_id', Number(userId));
+
+        const data = await post(e, formData, true);
+
+        console.log({ action: "delete", data });
 
         if (action) {
             if (typeof actions[action] === "function") {
-                actions[action](element, id);
+                actions[action](element, {
+                    id, userId
+                });
             }
         }
     }

@@ -69,7 +69,7 @@ if ($request->get(["info" => false])) {
 // Obtener una lista de tareas:
 if ($request->get(["tasklist" => false])) {
     $tasklist = new TaskList;
-    echo $tasklist->get();
+    echo $tasklist->getList();
     exit;
 }
 
@@ -81,9 +81,24 @@ if ($request->post([
     $values = $request->getValues();
 
     $tasklist = new TaskList;
-    $isSet = $tasklist->set((array) $values);
+    $isSet = $tasklist->add((array) $values);
 
     echo json_encode(["info" => $isSet]);
+    exit;
+}
+
+// Eliminar una tarea de la lista:
+if ($request->post([
+    'id' => true,
+    'user_id' => true
+])) {
+    /**
+     * @var 
+     */
+    $values = $request->getValues();
+    $tasklist = new TaskList;
+    $info = $tasklist->delete((array) $values);
+    echo json_encode(["info" => $info]);
     exit;
 }
 

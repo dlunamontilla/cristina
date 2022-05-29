@@ -5,20 +5,27 @@ namespace app;
 use database\Connect;
 
 class TaskList extends Connect {
+    /**
+     * @var int Identificador del usuario asociado a la 
+     * lista de tareas.
+     */
+    private $id;
+
     public function __construct() {
         parent::__construct();
+        $this->id = 1;
     }
 
     /**
      * @return string Devuelve una lista de tareas obtenida de la base de datos.
      */
-    public function get(): string {
+    public function getList(): string {
         $this->setJSON();
         $pdo = $this->getPDO();
 
         $stmt = $pdo->prepare("SELECT * FROM dl_tasklist WHERE users_id = :id ORDER BY tasklist_id DESC;");
         $stmt->execute([
-            ':id' => 1
+            ':id' => (int) $this->id
         ]);
 
         return json_encode($stmt->fetchAll(\PDO::FETCH_ASSOC));
@@ -27,7 +34,7 @@ class TaskList extends Connect {
     /**
      * @return bool verdadero si se guardó la tarea en la base de datos.
      */
-    public function set(array $tasklist): bool {
+    public function add(array $tasklist): bool {
         $task = (object) $tasklist;
 
         $pdo = $this->getPDO();
@@ -48,6 +55,20 @@ class TaskList extends Connect {
         return $stmt->execute([
             ':name' => (string) $task->tasklist_name,
             ':id' => (int) $task->users_id
+        ]);
+    }
+
+    /**
+     * @param array $param Lista de parámetros necesarios para eliminar la lista de tareas.
+     * @return bool Devuelve verdadero si se eliminó una tarea.
+     */
+    public function delete(array $param): bool {
+        $pdo = $this->getPDO();
+        $stmt = $pdo->prepare('DELETE FROM dl_tasklist WHERE users_id = :id AND tasklist_id = :tasklist_id;');
+
+        return $stmt->execute([
+            ':id' => (int) $param['user_id'],
+            ':tasklist_id' => (int) $param['id']
         ]);
     }
 }
