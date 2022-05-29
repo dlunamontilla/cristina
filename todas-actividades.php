@@ -1,6 +1,8 @@
 <?php
 include __DIR__ . "/app/autoload.php";
+
 use database\Connect;
+
 $connect = new Connect;
 $conexion = $connect->getPDO();
 $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
@@ -125,7 +127,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                         </a>
                     </li>
                     <li>
-                        <a href="factura.php" >
+                        <a href="factura.php">
                             <i class="bi bi-circle"></i><span>Factura</span>
                         </a>
                     </li>
@@ -138,7 +140,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                 </a>
                 <ul id="mente-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="podcasts.php" >
+                        <a href="podcasts.php">
                             <i class="bi bi-circle"></i><span>Podcasts</span>
                         </a>
                     </li>
@@ -240,7 +242,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
             </nav>
         </div><!-- Fin Migas de pan -->
 
-        
+
         <section class="section actividades">
             <!-- Actividades -->
             <div class="row">
@@ -255,7 +257,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad1 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/ciclyng.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/ciclyng.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Llueva, haga frío o calor en el exterior, en estas clases podrás sentir las mismas sensaciones que pedaleando en el exterior, guiado siempre por las indicaciones de nuestro personal técnico.</p>
                                         </div>
@@ -274,7 +276,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad2 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/zumba.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/zumba.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad que combina música internacional con coreografías fáciles de seguir, para lograr un entrenamiento de todo el cuerpo y sentirse alegre y saludable.</p>
                                         </div>
@@ -293,7 +295,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad3 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/duet_boxing.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/duet_boxing.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Disciplina con la que mediante movimientos de boxeo se consigue mejorar la fuerza, la capacidad aeróbica, la coordinación de movimientos, los reflejos, la flexibilidad y la propiocepción.</p>
                                         </div>
@@ -312,7 +314,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad4 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/cardio.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/cardio.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad de alta intensidad con una duración muy reducida, útil para perder peso, prevenir enfermedades cardiovaculares, mejorar nuestra fuerza e incluso ganar masa muscular.</p>
                                         </div>
@@ -331,7 +333,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad5 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/burpees.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/burpees.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad que mide la resistencia anaeróbica. Se realiza en varios movimientos (flexión de pecho, sentadilla y saltos verticales).</p>
                                         </div>
@@ -350,7 +352,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad6 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/aerobic.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/aerobic.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad coreografiada que te permitirá mejorar tanto tu condición física como la coordinación, a través de sencillos pasos que se realizan siempre siguiendo el ritmo de la música.</p>
                                         </div>
@@ -376,7 +378,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad7 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/duet_camp.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/duet_camp.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Entrenamiento cardiovascular de agilidad y fuerza relacionado con las carreras, pruebas de obstáculos y entrenamientos militares.</p>
                                         </div>
@@ -395,7 +397,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad8 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/body_pump.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/body_pump.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad orientada a la mejora de la fuerza muscular a través de la combinación de ejercicios propios de peso libre que se realizan al ritmo de la música y utilizando un material que permite variar el peso.</p>
                                         </div>
@@ -414,7 +416,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad9 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/crossfit.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/crossfit.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Combina diferentes tipos de ejercicios y de entrenamiento cruzado, que combina resistencia respiratoria, fuerza, resistencia, potencia, flexibilidad, velocidad, agilidad, coordinación, precisión y equilibrio.</p>
                                         </div>
@@ -433,7 +435,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad10 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/tonifica.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/tonifica.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Entrenamiento muscular combinado de tren inferior, tren superior y core.</p>
                                         </div>
@@ -452,7 +454,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad11 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/gap.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/gap.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Trabajaras tres zonas del cuerpo en concreto: Glúteos, Abdominales y Piernas. Su objetivo es eliminar la grasa que por naturaleza suele acumularse en esas zonas, y para tonificar.</p>
                                         </div>
@@ -471,7 +473,7 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                 <!-- Activividad12 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
                                     <div class="imagen-wrap">
-                                        <img src="img/sports/abdominales.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                        <img src="assets/img/sports/abdominales.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad destinada a la tonificación de los músculos abdominales.</p>
                                         </div>
@@ -496,15 +498,15 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
 
                                 <!-- Activividad13 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
-                                    <div class="imagen-wrap">     
-                                        <img src="img/sports/pilates.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                    <div class="imagen-wrap">
+                                        <img src="assets/img/sports/pilates.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
-                                        <p>Mejora tu salud postural a través de un trabajo consciente de toda la musculatura estabilizadora del tronco (abdominales, lumbares y musculatura profunda de la espalda).</p>
+                                            <p>Mejora tu salud postural a través de un trabajo consciente de toda la musculatura estabilizadora del tronco (abdominales, lumbares y musculatura profunda de la espalda).</p>
                                         </div>
                                         <div class="imagen-iconos">
-                                        <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-lightning"></i><span>240kcal</span>
+                                            <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
+                                            &nbsp;&nbsp;
+                                            <i class="bi bi-lightning"></i><span>240kcal</span>
                                         </div>
                                     </div>
 
@@ -515,53 +517,53 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
 
                                 <!-- Activividad14 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
-                                    <div class="imagen-wrap">     
-                                        <img src="img/sports/yoga.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                    <div class="imagen-wrap">
+                                        <img src="assets/img/sports/yoga.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
-                                        <p>Actividad que implica a la conciencia corporal, respiración, corrección postural, meditación y la concentración. Actúa reequilibrando el cuerpo y mejora nuestra autonomía personal.  </p>
+                                            <p>Actividad que implica a la conciencia corporal, respiración, corrección postural, meditación y la concentración. Actúa reequilibrando el cuerpo y mejora nuestra autonomía personal. </p>
                                         </div>
                                         <div class="imagen-iconos">
-                                        <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-lightning"></i><span>200kcal</span>
+                                            <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
+                                            &nbsp;&nbsp;
+                                            <i class="bi bi-lightning"></i><span>200kcal</span>
                                         </div>
                                     </div>
 
                                     <div class="nombre-aadd" style="background-color:rgba(217, 97, 89, 0.729); color:#fff;">
-                                    YOGA
+                                        YOGA
                                     </div>
                                 </div> <!-- Fin Activividad14 -->
 
                                 <!-- Activividad15 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
-                                    <div class="imagen-wrap">     
-                                        <img src="img/sports/body_balance.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                    <div class="imagen-wrap">
+                                        <img src="assets/img/sports/body_balance.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
-                                        <p>Programa que combina técnicas de Yoga, Tai chí y Pilates. Aumenta la flexibilidad, la fuerza y el equilibrio</p>        
+                                            <p>Programa que combina técnicas de Yoga, Tai chí y Pilates. Aumenta la flexibilidad, la fuerza y el equilibrio</p>
                                         </div>
                                         <div class="imagen-iconos">
-                                        <i class="bi bi-alarm"></i>&nbsp;<span>60min</span>
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-lightning"></i><span>300kcal</span>
+                                            <i class="bi bi-alarm"></i>&nbsp;<span>60min</span>
+                                            &nbsp;&nbsp;
+                                            <i class="bi bi-lightning"></i><span>300kcal</span>
                                         </div>
                                     </div>
 
                                     <div class="nombre-aadd" style="background-color:rgba(217, 97, 89, 0.729); color:#fff;">
-                                    BODY BALANCE
+                                        BODY BALANCE
                                     </div>
                                 </div> <!-- Fin Activividad15 -->
 
                                 <!-- Activividad16 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
-                                    <div class="imagen-wrap">     
-                                        <img src="img/sports/estiramientos.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                    <div class="imagen-wrap">
+                                        <img src="assets/img/sports/estiramientos.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
-                                        <p>Actividad que trata de estiramientos musculares trabajados por cadenas implicados en la consciencia corporal, respiración diafragmática, corrección postural, meditación y la concentración. Es equilibrador.</p>
+                                            <p>Actividad que trata de estiramientos musculares trabajados por cadenas implicados en la consciencia corporal, respiración diafragmática, corrección postural, meditación y la concentración. Es equilibrador.</p>
                                         </div>
                                         <div class="imagen-iconos">
-                                        <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-lightning"></i><span>200kcal</span>
+                                            <i class="bi bi-alarm"></i>&nbsp;<span>45min</span>
+                                            &nbsp;&nbsp;
+                                            <i class="bi bi-lightning"></i><span>200kcal</span>
                                         </div>
                                     </div>
 
@@ -572,15 +574,15 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
 
                                 <!-- Activividad17 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
-                                    <div class="imagen-wrap">     
-                                        <img src="img/sports/hipopresiva.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                    <div class="imagen-wrap">
+                                        <img src="assets/img/sports/hipopresiva.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
-                                        <p>Ejercicios posturales y respiratorios que aportan múltiples beneficios en terapia, prevención, mejora de la salud, estéticas y de rendimiento deportivo. </p>
+                                            <p>Ejercicios posturales y respiratorios que aportan múltiples beneficios en terapia, prevención, mejora de la salud, estéticas y de rendimiento deportivo. </p>
                                         </div>
                                         <div class="imagen-iconos">
-                                        <i class="bi bi-alarm"></i>&nbsp;<span>60min</span>
-                                        &nbsp;&nbsp;
-                                        <i class="bi bi-lightning"></i><span>200kcal</span>
+                                            <i class="bi bi-alarm"></i>&nbsp;<span>60min</span>
+                                            &nbsp;&nbsp;
+                                            <i class="bi bi-lightning"></i><span>200kcal</span>
                                         </div>
                                     </div>
 
@@ -591,8 +593,8 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
 
                                 <!-- Activividad18 -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 contenedor-img">
-                                    <div class="imagen-wrap">     
-                                        <img src="img/sports/tai_chi.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
+                                    <div class="imagen-wrap">
+                                        <img src="assets/img/sports/tai_chi.jpg" class="img-fluid" title="CYCLING" alt="CYCLING">
                                         <div class="imagen-info">
                                             <p>Actividad que trabaja sobre la respiración, relajación, concentración, conciencia corporal, meditación y los estiramientos. Equilibra el sistema nervioso y trabaja especialmente sobre la musculatura profunda.</p>
                                         </div>
@@ -602,12 +604,12 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
                                             <i class="bi bi-lightning"></i><span>200kcal</span>
                                         </div>
                                     </div>
-        
+
                                     <div class="nombre-aadd" style="background-color:rgba(217, 97, 89, 0.729); color:#fff;">
                                         TAI CHI
                                     </div>
                                 </div> <!-- Fin Activividad18 -->
-                            
+
                             </div> <!-- Fin Activ. Relax -->
 
                         </div>
@@ -620,17 +622,17 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
 
 
 
-     <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-        &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
-    </div>
-    <div class="credits">
-        <a href="terminos-y-condiciones.html">Términos y condiciones</a>
-        <a href="politica-de-privacidad.html">Política de privacidad</a>
-        <a href="politica-de-cookies.html">Política de cookies</a>
-    </div>
-  </footer><!-- Fin Footer -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Copyright 2021 <strong>SaludFit</strong>. Todos los derechos reservados.
+        </div>
+        <div class="credits">
+            <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+            <a href="politica-de-privacidad.html">Política de privacidad</a>
+            <a href="politica-de-cookies.html">Política de cookies</a>
+        </div>
+    </footer><!-- Fin Footer -->
 
     <!-- ======= Icono flecha ======= -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
@@ -638,11 +640,11 @@ $sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los da
     </a><!-- Final 'Icono' -->
 
 
-   <!-- Vendor JS Files -->
-   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-   <!-- Archivo scripts JS -->
-   <script src='assets/js/main-admin.js'></script>
+    <!-- Archivo scripts JS -->
+    <script src='assets/js/main-admin.js'></script>
 
 </body>
 
