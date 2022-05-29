@@ -1,9 +1,8 @@
 <?php
 
-namespace database;
-
 include __DIR__ . "/../app/autoload.php";
 
+use database\Connect;
 class LoadData extends Connect {
     public function __construct() { /* constructor de la clase LoadData */
         parent::__construct();  /* instancia de la clase Connect */
@@ -24,8 +23,7 @@ class LoadData extends Connect {
         $data = json_decode($provinces); /* 'json_decode' convierte la cadena de texto en formato JSON en PHP */
 
         $pdo = $this->getPDO();
-        $stmt = $pdo->prepare("DELETE FROM dl_province WHERE provice_id == '1'");
-        $stmt->execute();
+        // $stmt = $pdo->query("DELETE FROM dl_province WHERE province_id == '1'");
 
         $stmt = $pdo->prepare('INSERT INTO dl_province(`province_name`) values(:province_name)');
 
