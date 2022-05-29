@@ -36,3 +36,18 @@ if (formLogin) formLogin.onsubmit = async function(e) {
         parent.location = "./user.php";
     }, 2000);
 }
+
+// Registro de usuarios:
+const formRegisterUser = document.querySelector("#user-register");
+
+if (formRegisterUser) formRegisterUser.onsubmit = async function(e) {
+    e.preventDefault();
+    const data = await saveFormDataToServer(this);
+
+    if (!data.info) {
+        console.error("Lamentablemente, no se pudo crear el usuario, por favor, vuelva intentarlo");
+        return;
+    }
+
+    console.log({ data });
+}

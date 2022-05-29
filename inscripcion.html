@@ -107,17 +107,20 @@
 
                       <!-- Formulario Registro -->
                       <div class="modal-body">
-                          <form>
-                              <input type="hidden" name="id" value="id_alumno">
+                          <form method="post" action="api/" id="user-register">
+                              
                               <div class="row mb-1 tarifa mb-4">
                                 <label for="tarifa" class="col-md-4 col-lg-3">Tarifa:</label>
+
+                                <!-- Selección de tarifa -->
                                 <div class="col-md-8 col-lg-9">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tarifa" id="6meses" value="6meses" disabled="disabled" required>
+                                        <input class="form-check-input" type="radio" name="invoice_id" id="6meses" value="1" disabled="disabled" required>
                                         <label for="6meses" class="form-check-label">6 meses</label>
                                     </div>
+
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tarifa" id="12meses" value="12meses" disabled="disabled" checked>
+                                        <input class="form-check-input" type="radio" name="invoice_id" id="12meses" value="2" disabled="disabled" checked>
                                         <label class="form-check-label" for="12meses">12 meses</label>
                                     </div>
                                 </div>
@@ -127,14 +130,14 @@
                               <div class="row mb-3">
                                   <label for="email" class="col-md-4 col-lg-3 col-form-label">Correo electrónico:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="email" type="email" class="form-control" id="email" required>
+                                      <input name="email" type="email" class="form-control" id="email" required="required">
                                   </div>
                               </div>
 
                               <div class="row mb-3">
                                   <label for="password" class="col-md-4 col-lg-3 col-form-label">Contraseña:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="password" type="password" class="form-control" id="password" required>
+                                      <input name="password" type="password" class="form-control" id="password" required="required">
                                   </div>
                               </div>
 
@@ -144,31 +147,31 @@
                                   <legend class="col-md-4 col-lg-3 col-form-label">Género:</legend>
                                   <div class="col-md-8 col-lg-9">
                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="genero" id="mujer" value="mujer" required>
+                                          <input class="form-check-input" type="radio" name="gender" id="mujer" value="Mujer" required>
                                           <label for="mujer">Mujer</label>
                                       </div>
                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre">
+                                          <input class="form-check-input" type="radio" name="gender" id="hombre" value="Hombre">
                                           <label class="form-check-label" for="hombre">Hombre</label>
                                       </div>
                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="genero" id="otro" value="otro">
+                                          <input class="form-check-input" type="radio" name="gender" id="otro" value="Otro">
                                           <label class="form-check-label" for="otro">Otro</label>
                                       </div>
                                   </div>
                               </div>
 
                               <div class="row mb-3">
-                                  <label for="nombre" class="col-md-4 col-lg-3 col-form-label">Nombre:</label>
+                                  <label for="name" class="col-md-4 col-lg-3 col-form-label">Nombre:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="nombre" type="text" class="form-control" id="nombre" required>
+                                      <input name="name" type="text" class="form-control" id="name" required="required">
                                   </div>
                               </div>
 
                               <div class="row mb-3">
-                                  <label for="apellidos" class="col-md-4 col-lg-3 col-form-label">Apellidos:</label>
+                                  <label for="lastname" class="col-md-4 col-lg-3 col-form-label">Apellidos:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="apellidos" type="text" class="form-control" id="apellidos" required>
+                                      <input name="lastname" type="text" class="form-control" id="lastname" required>
                                   </div>
                               </div>
 
@@ -180,45 +183,42 @@
                               </div>
 
                               <div class="row mb-3">
-                                  <label for="fecha_nacimiento" class="col-md-4 col-lg-3 col-form-label">Fecha de nacimiento:</label>
+                                  <label for="date_of_birth" class="col-md-4 col-lg-3 col-form-label">Fecha de nacimiento:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" required>
+                                      <input name="date_of_birth" type="date" class="form-control" id="date_of_birth" required="required">
                                   </div>
                               </div>
 
                               <h6 class="card-title-profile mt-4 mb-3">Datos de contacto</h6>
 
                               <div class="row mb-3">
-                                  <label for="tel" class="col-md-4 col-lg-3 col-form-label">Teléfono:</label>
+                                  <label for="phone" class="col-md-4 col-lg-3 col-form-label">Teléfono:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="tel" type="tel" class="form-control" id="tel" required>
+                                      <input name="phone" type="tel" class="form-control" id="phone" required>
                                   </div>
                               </div>
 
                               <div class="row mb-3">
-                                  <label for="direccion" class="col-md-4 col-lg-3 col-form-label">Dirección postal:</label>
+                                  <label for="postal_address" class="col-md-4 col-lg-3 col-form-label">Dirección postal:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="direccion" type="text" class="form-control" id="direccion" required>
+                                      <input name="postal_address" type="text" class="form-control" id="postal_address" required>
                                   </div>
                               </div>
 
                               <div class="row mb-3">
-                                  <label for="provincia" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
+                                  <label for="province_id" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
                                   <div class="col-md-8 col-lg-9">
-                                    <select class="form-select form-control" required>
-                                      <option class="option-select" selected>Seleccione Provincia...</option>
-                                      <option value="alicante">Alicante</option>
-                                      <option value="barcelona">Barcelona</option>
-                                      <option value="madrid">Madrid</option>
-                                      <option value="valencia">Valencia</option>
+                                    <select class="form-select form-control" required="required">
+                                      <option class="" selected>Seleccione Provincia...</option>
+                                      <option value="1">Barcelona</option>
                                     </select>
                                   </div>
                               </div>
 
                               <div class="row mb-3">
-                                <label for="localidad" class="col-md-4 col-lg-3 col-form-label">Localidad:</label>
+                                <label for="locality" class="col-md-4 col-lg-3 col-form-label">Localidad:</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input name="localidad" type="text" class="form-control" id="localidad" required>
+                                    <input name="locality" type="text" class="form-control" id="locality" required>
                                 </div>
                             </div>
 
@@ -226,14 +226,14 @@
                               <h6 class="card-title-profile mt-4 mb-3">Datos bancarios</h6>
 
                               <div class="row mb-3">
-                                  <label for="cuenta-bancaria" class="col-md-4 col-lg-3 col-form-label">Cuenta bancaria:</label>
+                                  <label for="bank_account" class="col-md-4 col-lg-3 col-form-label">Cuenta bancaria:</label>
                                   <div class="col-md-8 col-lg-9">
-                                      <input name="cuenta-bancaria" type="text" class="form-control" id="cuenta-bancaria" required>
+                                      <input name="bank_account" type="text" class="form-control" id="bank_account" required>
                                   </div>
                               </div>
 
                               <div class="modal-footer">
-                                  <button type="button" class="btn-get-started">REGISTRARSE</button>
+                                  <button type="submit" class="btn-get-started">REGISTRARSE</button>
                               </div>
                           </form>
                       </div> <!-- Fin Formulario Registro -->
@@ -454,6 +454,7 @@
     
     <!-- Archivo scripts JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/app.js" type="module"></script>
     
 </body>
 </html>

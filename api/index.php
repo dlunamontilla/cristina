@@ -119,20 +119,19 @@ if ($request->post([
 
 
 if ($request->post([
-    'email' => true,
-    'password' => true,
-    'name' => true,
-    'lastname' => true,
-    'date_of_birth' => true,
-    'postal_address' => true,
-    'locality' => true,
-    'dni' => true,
-    'bank_account' => true,
-    'gender' => true,
-    'phone' => true,
-    'province_id' => true,
-    'role_id' => true,
-    'invoice_id' => true
+    'email' => true, //Listo
+    'password' => true, //Listo
+    'name' => true, // Listo
+    'lastname' => true, // Listo
+    'date_of_birth' => true, // Listo
+    'postal_address' => true, // Listo
+    'locality' => true, // Listo
+    'dni' => true, // Listo
+    'bank_account' => true, // Listo
+    'gender' => true, // Listo
+    'phone' => true, // LIsto
+    'province_id' => true, // Listo
+    'invoice_id' => true // Listo
 ])) {
     $values = (array) $request->getValues();
     $info = $user->create($values);

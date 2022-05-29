@@ -28,7 +28,7 @@
   <link href="assets/css/style-admin.css" rel="stylesheet">
 
   <!-- Registrar eventos -->
-  <script src="assets/js/saveToServer.js"></script>
+  <script src="assets/js/saveToServer.js" type="module"></script>
   <script src="assets/js/register-events.js" defer></script>
 </head>
 

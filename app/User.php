@@ -24,17 +24,18 @@ class User extends Connect {
         ]);
 
         /**
-         * @var bool
+         * @var array
          */
-        $exist = !!$stmt->fetchAll();
+        $exist = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         // Datos para la creación del inicio de sesión:
         $data = [
             "token" => sha1($credentials['password']),
-            "email" => $credentials['email']
+            "email" => $credentials['email'],
+            "users_id" => $exist['users_id']
         ];
 
-        if ($exist) return setcookie('token', json_encode($data), time() + 7200);
+        if (!!$exist) return setcookie('token', json_encode($data), time() + 7200);
         return false;
     }
 
@@ -120,7 +121,7 @@ class User extends Connect {
             ':gender' => (string) $data->gender,
             ':phone' => (string) $data->phone,
             ':province_id' => (int) $data->province_id,
-            ':role_id' => (int) $data->role_id,
+            ':role_id' => 2,
             ':invoice_id' => (int) $data->invoice_id
         ]);
     }
