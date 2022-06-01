@@ -10,6 +10,7 @@ use app\User;
 $events = new Events;
 $request = new DLRequest;
 $user = new User;
+$indicators = new Indicators;
 
 if ($user->auth()) {
 
@@ -32,6 +33,7 @@ if ($user->auth()) {
 
     // Se comprueba que la petición ha sido exitoso.
     if ($request->post($register_events)) {
+        
         $values = $request->getValues(":");
 
         // Almacenar fecha y hora en una variable:
@@ -41,6 +43,10 @@ if ($user->auth()) {
         $values = (array) $request->getValues(":", [
             "color", "initial_date", "final_date", "title", "user_id"
         ]);
+
+        $id = (int) $user->getId();
+
+        $values[':user_id'] = $id;
 
         $values[':initial_date'] = $initial_date;
         $values[':final_date'] = $final_date;
@@ -85,8 +91,11 @@ if ($user->auth()) {
         $values = $request->getValues();
 
         $tasklist = new TaskList;
+        
+        // Actualizar el ID del usuario
+        $values['users_id'] = $user->getId();
+        
         $isSet = $tasklist->add((array) $values);
-
         echo json_encode(["info" => $isSet]);
         exit;
     }
@@ -105,16 +114,30 @@ if ($user->auth()) {
         echo json_encode(["info" => $info]);
         exit;
     }
+
+    // Obtener indicadores:
+    if ($request->get(['indicators' => false])) {
+        header("content-type: application/json; charset=utf-8");
+        echo $indicators->getData();
+        exit;
+    }
 }
 
-
+// Crear una sesión de usuario:
 if ($request->post([
     "email" => true,
     "password" => true
 ])) {
     $values = (array) $request->getValues();
     $info = $user->createLogin($values);
+
+    if ($info) {
+        $indicators->users_id = $user->getId();
+        $indicators->create();
+    }
+
     echo json_encode(["info" => $info]);
+    exit;
 }
 
 if ($request->post([

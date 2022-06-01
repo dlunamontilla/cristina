@@ -1,4 +1,4 @@
-(async function () {
+const init = async () => {
 
     /**
      * 
@@ -19,13 +19,22 @@
             return [];
         }
 
-        const data = await response.json();
-        return data;
+        const data = await response.text();
+
+        if (!(data.length > 0)) {
+            return [];
+        }
+
+        return JSON.parse(data);
     }
 
-    const elements = await getData();
+    let elements = await getData();
     let id = elements[0]?.tasklist_id | 0;
 
+    /**
+     * @type { number } Contiene el identificador de un usuario autenticado.
+     */
+    const usersId = elements[0]?.users_id;
     /**
      * 
      * @param {Object<string, string|number} element 
@@ -33,6 +42,8 @@
      */
     function addList(element) {
         const { tasklist_id, tasklist_name, users_id } = element;
+
+        console.log({ tasklist_id, users_id });
 
         if (!tasklist_id || !users_id || !tasklist_name) return "";
 
@@ -98,7 +109,6 @@
     addTask.onsubmit = async (e) => {
         e.preventDefault();
 
-
         let textContent = prompt("Ingrese una descripción: ");
         if (!textContent) return;
 
@@ -112,15 +122,40 @@
         tasklistName.value = textContent;
         userID.value = 1;
 
+        // Almacenar las tareas en la tabla dl_tasklist
+        /**
+         * Almacenar las tareas en la tabla dl_tasklist
+         * @type { Object<string, string|number> }
+         */
         const data = await post(e, e.target);
 
+        console.log({ data });
+
         if (!data.info) return;
+
+        /**
+         * Obtener una lista actualizada de elementos con sus ID.
+         * @type { Array<Object<string, string|number>> }
+         */
+        elements = await getData();
 
         const formData = new FormData(e.target);
         const fields = Object.fromEntries(formData.entries());
 
-        fields.tasklist_id = ++id;
+        let maxIndex = 0;
 
+        elements.forEach((element, index) => {
+            if (index === 0) {
+                maxIndex = element.tasklist_id;
+            }
+
+            if (maxIndex < element.tasklist_id) {
+                maxIndex = element.tasklist_id;
+            }
+        });
+
+        fields.tasklist_id = maxIndex;
+        fields.users_id = usersId;
 
         const html = addList(fields);
         taskList.insertAdjacentHTML('afterbegin', html);
@@ -150,4 +185,9 @@
             }
         }
     }
-})();
+
+}
+
+init();
+
+export { };

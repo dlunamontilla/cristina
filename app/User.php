@@ -5,6 +5,11 @@ namespace app;
 use database\Connect;
 
 class User extends Connect {
+    /**
+     * @var int Identificador del usuario
+     */
+    private $users_id = 0;
+
     public function __construct() {
         parent::__construct();
     }
@@ -23,16 +28,21 @@ class User extends Connect {
             ':password' => (string) sha1($credentials['password'])
         ]);
 
+        $this->find($credentials['email']);
+
         /**
          * @var array
          */
         $exist = $stmt->fetch(\PDO::FETCH_ASSOC);
 
+        $data = !!$exist ? $exist : [];
+
+
         // Datos para la creación del inicio de sesión:
         $data = [
             "token" => sha1($credentials['password']),
             "email" => $credentials['email'],
-            "users_id" => $exist['users_id']
+            "users_id" => @$exist['users_id']
         ];
 
         if (!!$exist) return setcookie('token', json_encode($data), time() + 7200);
@@ -75,6 +85,8 @@ class User extends Connect {
         $pdo = $this->getPDO();
 
         $data = (object) $param;
+
+        if ($this->find($data->email)) return false;
 
         $stmt = $pdo->prepare('INSERT INTO dl_users(
             `email`,
@@ -124,5 +136,46 @@ class User extends Connect {
             ':role_id' => 2,
             ':invoice_id' => (int) $data->invoice_id
         ]);
+    }
+
+    /**
+     * Devuelve «true» si al buscar un usuario existe previamente en la base
+     * de datos, de lo contrario, devuelve «false».
+     * 
+     * @param string $username Usuario de la aplicación.
+     * @return bool
+     */
+    public function find(string $username): bool {
+        $pdo = $this->getPDO();
+        $stmt = $pdo->prepare("SELECT users_id, email FROM dl_users WHERE email = :email");
+        $stmt->execute([
+            ':email' => (string) $username
+        ]);
+
+        $exist = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!is_array($exist) || array_key_exists('users_id', $exist)) {
+            return false;
+        }
+
+        $this->users_id = @$exist['users_id'];
+
+        return !!$exist;
+    }
+
+    /**
+     * Devuelve el identificador del usuario en la base de datos.
+     * @return int 
+     */
+    public function getId(): int {
+        $data = (object) [];
+
+        if (array_key_exists('token', $_COOKIE)) {
+            $data = (object) json_decode($_COOKIE['token']);
+        }
+
+        return property_exists($data, 'users_id')
+            ? $data->users_id
+            : $this->users_id;
     }
 }

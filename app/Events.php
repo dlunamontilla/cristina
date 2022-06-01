@@ -14,6 +14,7 @@ class Events extends Connect {
      * @var \PDO
      */
     private $pdo;
+    private $user;
     
     public function __construct() {
         parent::__construct();
@@ -35,12 +36,24 @@ class Events extends Connect {
      * @return array
      */
     public function get(): array {
+        // Obtener el ID del usuario:
+        $data = [];
+
+        if (array_key_exists('token', $_COOKIE)) {
+            $data = (object) json_decode($_COOKIE['token']);
+        }
+
+        if (!property_exists($data, 'users_id')) return false;
+
         $this->setJSON();
 
         $pdo = $this->getPDO();
 
-        $stmt = $pdo->prepare("SELECT * FROM dl_events");
-        $stmt->execute();
+        $stmt = $pdo->prepare("SELECT * FROM dl_events WHERE users_id = :id");
+        $stmt->execute([
+            ':id' => (int) $data->users_id
+        ]);
+
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 

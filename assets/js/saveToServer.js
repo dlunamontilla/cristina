@@ -45,14 +45,25 @@ const saveFormDataToServer = async (form, jsonFormat = false) => {
             if (!response.ok) console.error(response.status);
 
             if (jsonFormat) {
-                const data = await response.json();
-                return data;
+                const data = await response.text();
+
+                if (!(data.length)) {
+                    return [];
+                }
+
+                return JSON.parse(data);
             }
 
-            const data = await response.json();
+            const data = await response.text();
             // form.reset();
 
-            return data;
+            console.log({ data });
+            
+            if (!(data.length > 0)) {
+                return [];
+            }
+
+            return JSON.parse(data);
         }
     };
 
@@ -62,6 +73,31 @@ const saveFormDataToServer = async (form, jsonFormat = false) => {
     }
 }
 
+/**
+ * 
+ * @param {string} path Ruta de la API
+ * 
+ * @return { Promise<Array<Object<string, string|number>>> }
+ */
+async function getData(path) {
+    const response = await fetch(path, {
+        method: "GET",
+        credentials: 'same-origin',
+        mode: 'same-origin'
+    });
+
+    if (!response.ok) console.error(response.status);
+
+    const data = await response.text();
+
+    if (!(data.length > 0)) {
+        return [];
+    }
+
+    return JSON.parse(data);
+}
+
 export {
-    saveFormDataToServer
+    saveFormDataToServer,
+    getData
 }

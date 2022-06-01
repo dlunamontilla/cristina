@@ -5,7 +5,13 @@ namespace app;
 use database\Connect;
 
 class Indicators extends Connect {
+    /**
+     * @var int Se almacena el identificador del usuario.
+     */
+    public $users_id;
+
     public function __construct() {
+        parent::__construct();
     }
 
     /**
@@ -40,7 +46,15 @@ class Indicators extends Connect {
      * @return int
      */
     public function getUserId(): int {
-        return 1;
+        $data = [];
+        if (array_key_exists('token', $_COOKIE)) {
+            $data = json_decode($_COOKIE['token']);
+        }
+        
+        $users_id = $data->users_id;
+        return (int) $this->users_id
+            ? $this->users_id
+            : $users_id;
     }
 
     /**
@@ -134,11 +148,23 @@ class Indicators extends Connect {
      * 
      * @return bool
      */
-    public function set(int $id): bool {
+    public function create(): bool {
         $pdo = $this->getPDO();
 
-        $stmt = $pdo->prepare('INSERT INTO dl_indicators(`ip`, `device_type`, `device_name`, `operating_system`, `browser`, `user_id`) VALUES(
-            :ip, :type, :name, :system, :browser, :user_id
+        $stmt = $pdo->prepare('INSERT INTO dl_indicators(
+            `ip`,
+            `device_type`,
+            `device_name`,
+            `operating_system`,
+            `browser`,
+            `users_id`
+        ) VALUES(
+            :ip,
+            :type,
+            :name,
+            :system,
+            :browser,
+            :users_id
         )');
 
         return $stmt->execute([
@@ -147,7 +173,23 @@ class Indicators extends Connect {
             ':name' => $this->getDeviceName(),
             ':system' => $this->getSystem(),
             ':browser' => $this->getBrowser(),
-            ':user_id' => $this->getUserID(),
+            ':users_id' => $this->getUserId(),
         ]);
+    }
+
+    /**
+     * Devuelve los datos de la tabla indicators en formato JSON si estas existen.
+     * 
+     * @return string
+     */
+    public function getData(): string {
+        $pdo = $this->getPDO();
+        $stmt = $pdo->prepare("SELECT * FROM dl_indicators WHERE users_id = :id ORDER BY indicators_id DESC LIMIT 3");
+        
+        $stmt->execute([
+            ':id' => $this->getUserId()
+        ]);
+
+        return json_encode($stmt->fetchAll(\PDO::FETCH_ASSOC));
     }
 }

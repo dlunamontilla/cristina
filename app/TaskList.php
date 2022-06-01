@@ -13,7 +13,10 @@ class TaskList extends Connect {
 
     public function __construct() {
         parent::__construct();
-        $this->id = 1;
+
+        $user = new User;
+
+        $this->id = (int) $user->getId();
     }
 
     /**
@@ -27,7 +30,7 @@ class TaskList extends Connect {
         $stmt->execute([
             ':id' => (int) $this->id
         ]);
-
+        
         return json_encode($stmt->fetchAll(\PDO::FETCH_ASSOC));
     }
 
@@ -54,7 +57,7 @@ class TaskList extends Connect {
 
         return $stmt->execute([
             ':name' => (string) $task->tasklist_name,
-            ':id' => (int) $task->users_id
+            ':id' => (int) $this->id
         ]);
     }
 

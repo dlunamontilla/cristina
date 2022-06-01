@@ -26,10 +26,6 @@
 
   <!-- Archivo estilos CSS -->
   <link href="assets/css/style-admin.css" rel="stylesheet">
-
-  <!-- Registrar eventos -->
-  <script src="assets/js/saveToServer.js" type="module"></script>
-  <script src="assets/js/register-events.js" defer></script>
 </head>
 
 <body>
@@ -254,24 +250,7 @@
                     <th scope="col">Navegador</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>2022-05-04 12:35:22</td>
-                    <td>90.169.197.185</td>
-                    <td>Ordenador</td>
-                    <td>WebKit</td>
-                    <td>Windows 10.0</td>
-                    <td>Chrome 100.0.4896.127</td>
-                  </tr>
-                  <tr>
-                    <td>2022-05-04 12:35:22</td>
-                    <td>90.169.197.185</td>
-                    <td>Ordenador</td>
-                    <td>WebKit</td>
-                    <td>Windows 10.0</td>
-                    <td>Chrome 100.0.4896.127</td>
-                  </tr>
-                </tbody>
+                <tbody id="tbody-indicators"></tbody>
               </table>
 
             </div>
@@ -439,13 +418,14 @@
   <script src='assets/js/main-admin.js'></script>
 
   <!-- Lista -->
-  <script src="assets/js/tasklist.js" defer></script>
 
   <!-- Calendar -->
   <script src="assets/vendor/jquery/jquery.js"></script>
   <script src='assets/vendor/moment/moment.min.js'></script>
   <script src='assets/vendor/fullcalendar/fullcalendar.js'></script>
   <script src='assets/vendor/fullcalendar/locale/es.js'></script>
+  <script src="assets/js/register-events.js"></script>
+  <script src="assets/js/app.js" type="module"></script>
 </body>
 
 </html>

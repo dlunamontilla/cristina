@@ -1,4 +1,6 @@
 import { saveFormDataToServer } from "./saveToServer.js";
+import { } from "./tasklist.js";
+import { } from "./indicators.js";
 
 const formLogin = document.querySelector("#form-login");
 
@@ -12,8 +14,6 @@ if (formLogin) formLogin.onsubmit = async function (e) {
      * @type { HTMl }
      */
     const data = await saveFormDataToServer(this);
-
-    console.log({ data });
 
     if (!data.info) {
         info.classList.add("error");
@@ -80,11 +80,11 @@ const buttons = document.querySelectorAll("[data-bs-target='#modal-register']");
 buttons.forEach(button => {
     const { suscription } = button.dataset;
 
-    if (!suscription ) return;
+    if (!suscription) return;
     const radio = document.querySelector(`#${suscription}`);
 
     console.log({ suscription, radio });
-    
+
     button.onclick = () => {
         radio.checked = true;
     }
