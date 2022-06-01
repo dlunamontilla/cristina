@@ -1,3 +1,14 @@
+<?php
+    include __DIR__ . "/app/autoload.php";
+
+    use app\User;
+
+    $user = new User;
+
+    if (!$user->auth()) {
+        header("Location: ./");
+    }
+?>
 <!doctype html>
 <html lang="es">
 
@@ -52,8 +63,8 @@
           <!-- Configuración perfil -->
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Nombre Usuario</h6>
-              <span>Tarifa</span>
+              <h6 id="username-profile">Nombre Usuario</h6>
+              <span id="tarifa">Tarifa</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -82,7 +93,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Cerrar Sesión</span>
+                <span id="logout">Cerrar Sesión</span>
               </a>
             </li>
 
@@ -243,8 +254,8 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               <i class="bi bi-person-fill"></i>
-              <h2>Nombre Usuario</h2>
-              <span>Tarifa</span>
+              <h2 id="username">Nombre Usuario</h2>
+              <span id="username-rate">Tarifa</span>
             </div>
           </div>
         </div><!-- Fin Colum. Nombre Usuario -->
@@ -277,54 +288,54 @@
                   <h5 class="card-title-profile mb-4">Datos personales</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Género:</div>
-                    <div class="col-lg-9 col-md-8">Mujer/Hombre/Otro</div>
+                    <div class="col-lg-3 col-md-4 label">Género:</div>
+                    <div class="col-lg-9 col-md-8" id="gender">Mujer/Hombre/Otro</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Nombre:</div>
-                    <div class="col-lg-9 col-md-8">Andrea</div>
+                    <div class="col-lg-3 col-md-4 label">Nombre:</div>
+                    <div class="col-lg-9 col-md-8" id="name">Andrea</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Apellidos:</div>
-                    <div class="col-lg-9 col-md-8">Martinez Lozano</div>
+                    <div class="col-lg-9 col-md-8" id="lastname">Martinez Lozano</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">DNI:</div>
-                    <div class="col-lg-9 col-md-8">73823212J</div>
+                    <div class="col-lg-9 col-md-8" id="dni">73823212J</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Fecha nacimiento:</div>
-                    <div class="col-lg-9 col-md-8">16/02/2000</div>
+                    <div class="col-lg-9 col-md-8" id="date-of-birth">16/02/2000</div>
                   </div>
 
                   <h5 class="card-title-profile mb-4">Datos de contacto</h5>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Correo electrónico:</div>
-                    <div class="col-lg-9 col-md-8">andreamartinez@gmail.com</div>
+                    <div class="col-lg-9 col-md-8" id="email">andreamartinez@gmail.com</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Teléfono:</div>
-                    <div class="col-lg-9 col-md-8">620833829</div>
+                    <div class="col-lg-9 col-md-8" id="phone">620833829</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Dirección postal:</div>
-                    <div class="col-lg-9 col-md-8">C/ Miguel Hernandez</div>
+                    <div class="col-lg-9 col-md-8" id="postal-address">C/ Miguel Hernandez</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Provincia:</div>
-                    <div class="col-lg-9 col-md-8">Valencia</div>
+                    <div class="col-lg-9 col-md-8" id="province">Valencia</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Localidad:</div>
-                    <div class="col-lg-9 col-md-8">Aldaia</div>
+                    <div class="col-lg-9 col-md-8" id="locality">Aldaia</div>
                   </div>
 
 
@@ -339,28 +350,28 @@
                     <div class="row mb-3">
                       <label for="nombre" class="col-md-4 col-lg-3 col-form-label">Nombre:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="nombre" type="text" class="form-control" id="nombre" value="Andrea" required>
+                        <input name="nombre" type="text" class="form-control" id="input-name" value="Andrea" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="apellidos" class="col-md-4 col-lg-3 col-form-label">Apellidos:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="apellidos" type="text" class="form-control" id="apellidos" value="Martinez Lozano" required>
+                        <input name="apellidos" type="text" class="form-control" id="input-lastname" value="Martinez Lozano" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="dni" class="col-md-4 col-lg-3 col-form-label">DNI:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="dni" type="text" class="form-control" id="dni" value="73823212J" readonly>
+                        <input name="dni" type="text" class="form-control" id="input-dni" value="73823212J" readonly>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="fecha_nacimiento" class="col-md-4 col-lg-3 col-form-label">Fecha de nacimiento:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="2000-02-16" readonly>
+                        <input name="fecha_nacimiento" type="text" class="form-control" id="input-date-of-birth" value="2000-02-16" readonly>
                       </div>
                     </div>
 
@@ -369,26 +380,22 @@
                     <div class="row mb-3">
                       <label for="tel" class="col-md-4 col-lg-3 col-form-label">Teléfono:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="tel" type="tel" class="form-control" id="tel" value="620833829" required>
+                        <input name="tel" type="tel" class="form-control" id="input-phone" value="620833829" required="required">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="direccion" class="col-md-4 col-lg-3 col-form-label">Dirección postal:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="direccion" type="text" class="form-control" id="direccion" value="C/ Miguel Hernandez" required>
+                        <input name="direccion" type="text" class="form-control" id="input-postal-address" value="C/ Miguel Hernandez" required="required">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="provincia" class="col-md-4 col-lg-3 col-form-label">Provincia:</label>
                       <div class="col-md-8 col-lg-9">
-                        <select class="form-select form-control" required>
+                        <select class="form-select form-control" required="required" id="select-province">
                           <option class="option-select" selected>Seleccione Provincia...</option>
-                          <option value="alicante">Alicante</option>
-                          <option value="barcelona">Barcelona</option>
-                          <option value="madrid">Madrid</option>
-                          <option value="valencia">Valencia</option>
                         </select>
                       </div>
                     </div>
@@ -396,7 +403,7 @@
                     <div class="row mb-3">
                       <label for="localidad" class="col-md-4 col-lg-3 col-form-label">Localidad:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="localidad" type="text" class="form-control" id="localidad" value="Aldaia" required>
+                        <input name="localidad" type="text" class="form-control" id="input-locality" value="Aldaia" required>
                       </div>
                     </div>
 
@@ -405,7 +412,7 @@
                     <div class="row mb-3">
                       <label for="cuenta-bancaria" class="col-md-4 col-lg-3 col-form-label">Cuenta bancaria:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="cuenta-bancaria" type="text" class="form-control" id="cuenta-bancaria" value="123-234-123" required>
+                        <input name="cuenta-bancaria" type="text" class="form-control" id="input-bank-account" value="123-234-123" required>
                       </div>
                     </div>
 
@@ -419,11 +426,12 @@
 
                 <!-- Editar Datos acceso -->
                 <div class="tab-pane fade profile-edit pt-3" id="profile-change-password">
-                  <form>
+
+                  <form action="./api/" method="POST" id="password-update-form">
                     <div class="row mb-3">
                       <label for="email" class="col-md-4 col-lg-3 col-form-label">Correo electrónico:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="email" value="andreamartinez@gmail.com" required>
+                        <input type="email" class="form-control" id="input-email" value="andreamartinez@gmail.com" disabled="disabled">
                       </div>
                     </div>
 
@@ -437,12 +445,12 @@
                     <div class="row mb-3">
                       <label for="password" class="col-md-4 col-lg-3 col-form-label">Repite la contraseña:</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password-repeat" placeholder="Vuelva a escribir su contraseña">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <a type="submit" class="btn-edit">Cambiar datos</a>
+                      <button type="submit" class="btn-edit">Actualizar contraseña</button>
                     </div>
                   </form><!-- Fin Datos acceso -->
 
@@ -479,6 +487,8 @@
   <!-- Archivo scripts JS -->
   <script src='assets/js/main-admin.js'></script>
 
+  <!-- app -->
+  <script src="assets/js/app.js" type="module"></script>
 </body>
 
 </html>

@@ -43,7 +43,7 @@ const init = async () => {
     function addList(element) {
         const { tasklist_id, tasklist_name, users_id } = element;
 
-        console.log({ tasklist_id, users_id });
+        // console.log({ tasklist_id, users_id });
 
         if (!tasklist_id || !users_id || !tasklist_name) return "";
 

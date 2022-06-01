@@ -1,3 +1,15 @@
+<?php
+    include __DIR__ . "/app/autoload.php";
+
+    use app\User;
+
+    $user = new User;
+
+    if (!$user->auth()) {
+        header("Location: ./");
+    }
+?>
+
 <!doctype html>
 <html lang="es">
 

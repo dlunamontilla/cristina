@@ -12,6 +12,9 @@ class Indicators extends Connect {
 
     public function __construct() {
         parent::__construct();
+
+        $user = new User;
+        $this->users_id = $user->getId();
     }
 
     /**

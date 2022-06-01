@@ -4,6 +4,7 @@ include __DIR__ . "/../app/autoload.php";
 use assets\DLTools\DLRequest;
 use app\Events;
 use app\Indicators;
+use app\Province;
 use app\TaskList;
 use app\User;
 
@@ -11,6 +12,7 @@ $events = new Events;
 $request = new DLRequest;
 $user = new User;
 $indicators = new Indicators;
+$provinces = new Province;
 
 if ($user->auth()) {
 
@@ -161,3 +163,37 @@ if ($request->post([
     exit;
 }
 // $user->close();
+
+if ($request->module('getProfile')) {
+    echo $user->getProfile();
+    exit;
+}
+
+// Actualizar contraseña de usuario
+if ($request->post(['password' => true])) {
+    $values = (object) $request->getValues();
+
+    /** @var string  */
+    $password = $values->password;
+    echo json_encode(["info" => $user->updatePassword($password)]);
+    exit;
+}
+
+// Eliminar un usuario por su identificador
+if ($request->post(["id" => true])) {
+    $id = (int) $request->getValues()->id;
+    echo json_encode(["info" => $user->delete($id)]);
+    exit;
+}
+
+// Cerrar la sesión de usuario
+if ($request->module('logout')) {
+    echo json_encode(["info" => $user->close()]);
+    exit;
+}
+
+// Obtener una lista de provincias
+if ($request->module('getProvinces')) {
+    echo $provinces->getProvinces();
+    exit;
+}

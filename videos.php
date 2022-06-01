@@ -1,11 +1,13 @@
 <?php
-include __DIR__ . "/app/autoload.php";
+    include __DIR__ . "/app/autoload.php";
 
-use database\Connect;
+    use app\User;
 
-$connect = new Connect;
-$conexion = $connect->getPDO();
-$sentencia = $conexion->query('SELECT * FROM dl_events'); /*Mostrar todos los datos de la tabla 'events'*/
+    $user = new User;
+
+    if (!$user->auth()) {
+        header("Location: ./");
+    }
 ?>
 
 <!doctype html>

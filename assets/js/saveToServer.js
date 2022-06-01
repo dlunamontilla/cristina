@@ -55,13 +55,11 @@ const saveFormDataToServer = async (form, jsonFormat = false) => {
             }
 
             const data = await response.text();
-            // form.reset();
-
-            console.log({ data });
             
             if (!(data.length > 0)) {
                 return [];
             }
+            console.log({ data });
 
             return JSON.parse(data);
         }

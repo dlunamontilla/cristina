@@ -1,6 +1,7 @@
 import { saveFormDataToServer } from "./saveToServer.js";
 import { } from "./tasklist.js";
 import { } from "./indicators.js";
+import { } from "./profile.js";
 
 const formLogin = document.querySelector("#form-login");
 

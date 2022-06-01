@@ -178,4 +178,109 @@ class User extends Connect {
             ? $data->users_id
             : $this->users_id;
     }
+
+    /**
+     * @return string Devuelve datos en formato JSON
+     */
+    public function getProfile(): string {
+        $this->setJSON();
+        $pdo = $this->getPDO();
+
+        $stmt = $pdo->prepare("SELECT * FROM dl_users WHERE users_id = :id");
+        $stmt->execute([
+            ':id' => $this->getId()
+        ]);
+
+        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (is_array($data)) {
+            $date = $data['date_of_birth'];
+
+            unset($data['password']);
+            $dateFormat = new DateFormat($date);
+            $data['date_of_birth'] = $dateFormat->getDate();
+            $data['date_of_birth_short'] = $dateFormat->getDate(true);
+            $data['date_of_birth_original'] = $date;
+            
+            $stmt = $pdo->prepare('SELECT * FROM dl_invoice WHERE invoice_id = :id');
+            $stmt->execute([
+                ':id' => $data['province_id']
+            ]);
+
+            $rate = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            if (is_array($rate)) {
+                $data = array_merge($data, $rate);
+            }
+            
+            $stmt = $pdo->prepare("SELECT * FROM dl_province WHERE province_id = :id");
+            $stmt->execute([
+                ':id' => $data['province_id']
+            ]);
+
+            $province = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            if (is_array($province)) {
+                $data = array_merge($data, $province);
+            }
+        }
+
+
+        return $data
+            ? json_encode($data)
+            : json_encode(["message" => "No se pudo obtener los datos del usuario, porque posiblemente no haya iniciado sesión"]);
+    }
+
+    /**
+     * @string $password Contraseña del usuario 
+     * @return bool Actualizar la contraseña del usuario. Si se hizo exitosamente,
+     * devolverá «true», de lo contrario, devolverá «false».
+     */
+    public function updatePassword(string $password): bool {
+        $pdo = $this->getPDO();
+
+        $stmt = $pdo->prepare("UPDATE dl_users SET password = :password WHERE users_id = :id");
+        return $stmt->execute([
+            ':password' => sha1($password),
+            ':id' => $this->getId()
+        ]);
+    }
+
+    /**
+     * @param int $id Identificador del usuario a eliminar
+     */
+    public function delete(int $id): bool {
+        // Prevenir que se elimine el administrador.
+        if ($id === 1) return false;
+
+        // Prevenir que cualquier usuario pueda eliminar otros usuarios.
+        if ($this->getId() !== 1) {
+            return false;
+        }
+
+        $pdo = $this->getPDO();
+
+        $stmt = $pdo->prepare("DELETE FROM dl_users WHERE users_id = :id");
+        return $stmt->execute([
+            ':id' => (int) $id
+        ]);
+    }
+
+    /**
+     * @param int $id ID del usuario al que se le va a actualizar la contraseña
+     * @return bool
+     */
+    public function updatePasswordOtherUsers(int $id, string $password): bool {
+        if ($id === 1) return false;
+
+        if ($this->getId() !== 1) return false;
+
+        $pdo = $this->getPDO();
+
+        $stmt = $pdo->prepare("UPDATE dl_users set password = :password WHERE users_id = :id");
+        return $stmt->execute([
+            ':password' => sha1($password),
+            ':id' => (int) $id
+        ]);
+    }
 }
